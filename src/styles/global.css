@@ -1747,10 +1747,6 @@ main:focus {
 }
 /* Tones — the whole site darkens from afternoon to night. */
 :root[data-tone='afternoon'] { --bg: #15120d; --surface: #1e1a13; --surface-2: #262017; --accent: #e0a860; }
-:root[data-tone='golden']    { --bg: #14110b; --surface: #1f1a11; --surface-2: #282014; --accent: #e39a4c; }
-:root[data-tone='forest']    { --bg: #0e1410; --surface: #151d17; --surface-2: #1b261e; --accent: #a3bf8f; }
-:root[data-tone='dusk']      { --bg: #0e1215; --surface: #151b20; --surface-2: #1b232a; --accent: #c9ae84; }
-:root[data-tone='night']     { --bg: #090c14; --surface: #10151f; --surface-2: #161d2b; --accent: #9ab3de; }
 html,
 body,
 .nav {
@@ -3069,4 +3065,166 @@ body,
 .audio__tag {
   order: 3;
   flex-basis: 100%;
+}
+
+
+/* ==========================================================================
+   Calmer scale — one warm-brown tone, smaller type (Home hero unchanged)
+   ========================================================================== */
+
+:root {
+  --bg: #15120d;
+  --surface: #1e1a13;
+  --surface-2: #262017;
+  --accent: #e0a860;
+}
+body {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Page headers */
+.ph {
+  padding-top: clamp(3rem, 6vw, 5rem);
+}
+.ph__title {
+  font-size: clamp(2.1rem, 3.8vw, 3.4rem);
+}
+.ph__text {
+  margin-top: 1rem;
+  font-size: 1rem;
+  max-width: 48ch;
+}
+.subnav {
+  margin-top: 2rem;
+  padding-block: 0.8rem;
+}
+.subnav a {
+  font-size: 0.85rem;
+}
+
+/* Sections */
+.block {
+  padding-top: clamp(3.25rem, 6vw, 5rem);
+}
+.block__title {
+  font-size: clamp(1.35rem, 2.1vw, 1.9rem);
+  line-height: 1.15;
+}
+.block__lede,
+.block .prose,
+.excerpt,
+.prose {
+  font-size: 0.95rem;
+}
+.block__title + * {
+  margin-top: 1rem;
+}
+.excerpt .disclosure {
+  margin-top: 0.4rem;
+}
+.excerpt .disclosure__btn {
+  padding-block: 0.3rem;
+  color: var(--accent);
+}
+
+/* Next-page link: small and quiet */
+.next {
+  margin-top: clamp(3.5rem, 7vw, 5rem);
+}
+.next__link {
+  padding-block: 1.5rem;
+}
+.next__title {
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+}
+.next__arrow {
+  font-size: 0.9em;
+  vertical-align: 0;
+}
+
+/* Home below the hero */
+.summary {
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+}
+.summary__text {
+  font-size: clamp(1.15rem, 1.7vw, 1.5rem);
+  max-width: 40ch;
+}
+.facts dd {
+  font-size: 0.95rem;
+}
+.quote {
+  font-size: clamp(1.1rem, 1.7vw, 1.45rem);
+  line-height: 1.35;
+}
+.quote--xl {
+  font-size: clamp(1.3rem, 2.2vw, 1.9rem);
+}
+.journey__name {
+  font-size: 0.85rem;
+}
+
+/* Smaller component headings */
+.card__title,
+.palette__name,
+.influences__title,
+.qa dt,
+.diagram__label,
+.plan__stage,
+.model__name,
+.reflection__title {
+  font-size: 1.15rem;
+}
+.note__title,
+.resource__title,
+.evidence__title,
+.pending__title,
+.timeline__title,
+.textures__name,
+.workflow__step,
+.caption__title,
+.audio__title {
+  font-size: 1rem;
+}
+.reflection__title {
+  font-size: clamp(1.25rem, 1.8vw, 1.5rem);
+}
+.reflection__lede {
+  font-size: 0.95rem;
+}
+.closing__text,
+.diagram__quality,
+.mixer__state {
+  font-size: 1.2rem;
+}
+.objectives__n {
+  font-size: 2rem;
+}
+.tiers__res,
+.facts--inline dd {
+  font-size: 1.3rem;
+}
+.card,
+.stage,
+.plan li,
+.resource {
+  padding: 1.1rem;
+}
+.card dl,
+.note p,
+.influences__why,
+.qa dd,
+.card__visual,
+.evidence__caption {
+  font-size: 0.875rem;
+}
+.palette__swatches {
+  height: 100px;
+}
+.menu__link {
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+}
+.hx {
+  min-height: min(calc(100svh - var(--nav-h)), 980px);
 }

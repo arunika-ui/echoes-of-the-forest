@@ -1,3 +1,4 @@
+import { Excerpt } from '../components/Excerpt'
 import { AudioPlayer } from '../components/AudioPlayer'
 import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
@@ -17,7 +18,7 @@ export function AudioPage() {
       <PageIntro page={page} />
 
       <Block label="Why audio matters" title="Sound marks the passage of time">
-        <p className="prose">{sonic.why}</p>
+        <Excerpt text={sonic.why} />
       </Block>
 
       <Block

@@ -1,3 +1,4 @@
+import { Excerpt } from '../components/Excerpt'
 import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
 import { EvidenceCard } from '../components/EvidenceCard'
@@ -14,7 +15,7 @@ export function LearningPage() {
     <>
       <PageIntro page={page} />
 
-      <Block label="Skill gaps" title="Least confident areas" lede={<p>{learning.gapText}</p>}>
+      <Block label="Skill gaps" title="Least confident areas" lede={<Excerpt text={learning.gapText} />}>
         <ul className="chips">
           {learning.gaps.map((g) => (
             <li key={g}>{g}</li>
@@ -22,7 +23,7 @@ export function LearningPage() {
         </ul>
       </Block>
 
-      <Block label="Learning plan" title="Simple first, then complex" lede={<p>{learning.planText}</p>} wide>
+      <Block label="Learning plan" title="Simple first, then complex" lede={<Excerpt text={learning.planText} />} wide>
         <Reveal as="ol" className="plan" stagger>
           {learning.plan.map((p, i) => (
             <li key={p.stage}>

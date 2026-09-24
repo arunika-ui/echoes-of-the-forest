@@ -1,5 +1,5 @@
+import { Excerpt } from '../components/Excerpt'
 import { Block } from '../components/Block'
-import { Disclosure } from '../components/Disclosure'
 import { InquiryDiagram } from '../components/InquiryDiagram'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
@@ -25,17 +25,12 @@ export function InquiryPage() {
       </section>
 
       <Block label="Introduction" title="Why this question">
-        <div className="prose">
-          <p>{inquiry.intro[0]}</p>
-          <Disclosure label="Read the full introduction">
-            <p>{inquiry.intro[1]}</p>
-          </Disclosure>
-        </div>
+        <Excerpt text={inquiry.intro} label="Read the full introduction" />
       </Block>
 
       <Block label="XR platform" title="Standalone Meta Quest">
         <div className="split-2">
-          <p className="prose">{inquiry.platform}</p>
+          <Excerpt text={inquiry.platform} />
           <div>
             <p className="tiny muted">What it constrains</p>
             <ul className="ticklist">
@@ -60,7 +55,7 @@ export function InquiryPage() {
       </Block>
 
       <Block label="Expected outcome" title="A calm, convincing world">
-        <p className="prose">{inquiry.outcome}</p>
+        <Excerpt text={inquiry.outcome} />
       </Block>
 
       <Block label="How the folio answers it" title="Three inputs, one experience" wide>

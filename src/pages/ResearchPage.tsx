@@ -1,3 +1,4 @@
+import { Excerpt } from '../components/Excerpt'
 import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
 import { PageIntro } from '../components/PageIntro'
@@ -36,7 +37,7 @@ export function ResearchPage() {
     <>
       <PageIntro page={page} />
 
-      <Block label="XR platform research" title="Presence, constraints and comfort" lede={<p>{research.intro}</p>} wide>
+      <Block label="XR platform research" title="Presence, constraints and comfort" lede={<Excerpt text={research.intro} />} wide>
         <Reveal as="ul" className="grid-4" stagger>
           {research.xr.map((x) => (
             <li key={x.title} className="note">
@@ -87,7 +88,7 @@ export function ResearchPage() {
       </Block>
 
       <Block label="Influence" title="How this research shaped the project">
-        <p className="prose">{research.influence}</p>
+        <Excerpt text={research.influence} />
       </Block>
 
       <PageNext slug="research" />

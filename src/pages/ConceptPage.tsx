@@ -1,3 +1,4 @@
+import { Excerpt } from '../components/Excerpt'
 import { AudioPlayer } from '../components/AudioPlayer'
 import { Block } from '../components/Block'
 import { PageIntro } from '../components/PageIntro'
@@ -13,7 +14,7 @@ export function ConceptPage() {
     <>
       <PageIntro page={page} />
 
-      <Block label="Project overview" title="The trail and the campsite" lede={<p>{concept.overview}</p>}>
+      <Block label="Project overview" title="The trail and the campsite" lede={<Excerpt text={concept.overview} />}>
         <div className="two-lists">
           <div>
             <p className="tiny muted">Along the trail</p>
@@ -38,7 +39,7 @@ export function ConceptPage() {
         <p className="prose">{concept.storytelling}</p>
       </Block>
 
-      <Block label="Day → night" title="Light and sound change together" lede={<p>{concept.transitionIntro}</p>} wide>
+      <Block label="Day → night" title="Light and sound change together" lede={<Excerpt text={concept.transitionIntro} />} wide>
         <Reveal as="ol" className="stages" stagger>
           {concept.stages.map((s, i) => (
             <li key={s.id} className={`stage stage--${s.id}`}>
@@ -62,20 +63,12 @@ export function ConceptPage() {
       </Block>
 
       <Block label="Theme justification" title="Experience & Exploration">
-        <div className="prose">
-          {concept.themeJustification.map((p) => (
-            <p key={p}>{p}</p>
-          ))}
-        </div>
+        <Excerpt text={concept.themeJustification} />
       </Block>
 
       <Block label="Audience & comfort" title="Who it is for">
         <div className="split-2">
-          <div className="prose">
-            {concept.audience.map((p) => (
-              <p key={p}>{p}</p>
-            ))}
-          </div>
+          <Excerpt text={concept.audience} />
           <div>
             <p className="tiny muted">Designed for comfort</p>
             <ul className="ticklist">

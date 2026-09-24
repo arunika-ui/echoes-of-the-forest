@@ -1,3 +1,4 @@
+import { Excerpt } from '../components/Excerpt'
 import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
 import { EvidenceCard } from '../components/EvidenceCard'
@@ -63,7 +64,7 @@ export function ProcessPage() {
         </Reveal>
       </Block>
 
-      <Block label="Optimisation" title="Budgets, triangles and file size" lede={<p>{bp.optimisationNote}</p>} wide>
+      <Block label="Optimisation" title="Budgets, triangles and file size" lede={<Excerpt text={bp.optimisationNote} />} wide>
         <div className="table-wrap" role="region" aria-label="Optimisation results" tabIndex={0}>
           <table className="table">
             <thead>
