@@ -74,7 +74,7 @@ export const pages: PageDef[] = [
   { n: '03', slug: 'research', path: '/research', nav: 'Research', title: 'Research', intro: 'XR platform research, the low-poly style, colour, lighting and environmental design.', group: 'research', tone: 'golden' },
   { n: '04', slug: 'moodboard', path: '/moodboard', nav: 'Moodboard', title: 'Visual Moodboard', intro: 'One composed moodboard that fixes the visual identity of the forest and campsite.', group: 'research', tone: 'golden' },
   { n: '05', slug: 'learning', path: '/learning', nav: 'Technical Learning', title: 'Technical Learning', intro: 'Identified skill gaps, a learning plan, and the resources used to close them.', group: 'research', tone: 'golden' },
-  { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'Workflow, file organisation, textures and optimisation for standalone VR.', group: 'development', tone: 'forest' },
+  { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'Textures, optimisation and screenshots from Blender.', group: 'development', tone: 'forest' },
   { n: '07', slug: 'assets', path: '/assets', nav: 'Asset Development', title: 'Asset Development', intro: 'The visual and audio asset trackers — planned assets, budgets and honest status.', group: 'development', tone: 'forest' },
   { n: '08', slug: 'audio', path: '/audio', nav: 'Sonic Development', title: 'Sonic Development', intro: 'Sound changes alongside light to communicate the passage of time.', group: 'development', tone: 'forest' },
   { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Real milestones only, taken from the dates of the project files.', group: 'development', tone: 'dusk' },
@@ -353,7 +353,6 @@ export const blenderProcess = {
   resolutionTiers: [
     { res: '1024', use: 'Pine tree · tent · backpack' },
     { res: '512', use: 'Campfire · lantern · log · rock · bush · trail sign' },
-    { res: '256', use: 'Mushroom cluster' },
   ],
   screenshots: [
     { title: 'Blockout', media: m('process/blockout', 'Blockout', 'Blender blockout of the trail') },
@@ -377,7 +376,6 @@ export const visualAssets = [
   { name: 'Rock', type: '3D', category: 'Environment', description: 'Forest rock', texture: 'rock.png', resolution: '512×512', lighting: 'Natural', relatedTo: 'Forest', polys: '150–300', status: 'not-started' as Status },
   { name: 'Bush', type: '3D', category: 'Vegetation', description: 'Forest bush', texture: 'bush.png', resolution: '512×512', lighting: 'Natural', relatedTo: 'Forest', polys: '150–250', status: 'not-started' as Status },
   { name: 'Trail Sign', type: '3D', category: 'Prop', description: 'Navigation sign', texture: 'trailSign.png', resolution: '512×512', lighting: 'Sun', relatedTo: 'Trail', polys: '200–350', status: 'not-started' as Status },
-  { name: 'Mushroom Cluster', type: '3D', category: 'Vegetation', description: 'Forest mushrooms', texture: 'mushrooms.png', resolution: '256×256', lighting: 'Natural', relatedTo: 'Forest', polys: '100–150', status: 'not-started' as Status },
 ]
 
 /** Edited environmental audio — cleaned WAVs, 48 kHz stereo. Add more as they are produced. */

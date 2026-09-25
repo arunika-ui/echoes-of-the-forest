@@ -1,5 +1,7 @@
+import { Block } from '../components/Block'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
+import { PendingCard } from '../components/PendingCard'
 import { Reveal } from '../components/Reveal'
 import { pageBySlug, timeline } from '../data/projectData'
 import { usePageTitle } from './usePageTitle'
@@ -30,6 +32,9 @@ export function TimelinePage() {
           </Reveal>
         </div>
       </section>
+      <Block label="Files" title="Timeline evidence">
+        <PendingCard kind="ZIP" title="Timeline files" ratio="auto" />
+      </Block>
       <PageNext slug="timeline" />
     </>
   )

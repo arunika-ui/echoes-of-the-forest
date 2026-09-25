@@ -45,7 +45,7 @@ export function AssetsPage() {
         />
       </Block>
 
-      <Block label="Edited audio" title="Environmental audio" lede={<p>Cleaned WAVs, 48 kHz stereo. Press play — one sound plays at a time.</p>} wide>
+      <Block label="Edited audio" title="Final audio assets" wide>
         <Reveal as="ul" className="grid-2 sounds" stagger>
           {audioAssets.map((s) => (
             <li key={s.name}>

@@ -2,7 +2,6 @@ import { Excerpt } from '../components/Excerpt'
 import { AudioPlayer } from '../components/AudioPlayer'
 import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
-import { EvidenceCard } from '../components/EvidenceCard'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
 import { PendingCard } from '../components/PendingCard'
@@ -58,45 +57,10 @@ export function AudioPage() {
           ))}
         </ul>
         <div className="grid-3 mt">
-          <PendingCard kind="Audio · before" title="Source clip" note="Before/after pairs appear once edits exist." ratio="auto" />
-          <PendingCard kind="Audio · after" title="Edited clip" ratio="auto" />
-          <EvidenceCard kind="image" title="DAW screenshot" media={sonic.dawScreenshot} inquiry="Shows how sourced audio is substantially modified." />
+          <PendingCard kind="Screenshot" title="Editing screenshot 1" />
+          <PendingCard kind="Screenshot" title="Editing screenshot 2" />
+          <PendingCard kind="Screenshot" title="Editing screenshot 3" />
         </div>
-      </Block>
-
-      <Block label="Voice memos" title="Process recordings" wide>
-        {sonic.voiceMemos.length ? (
-          <div className="grid-2">
-            {sonic.voiceMemos.map((v) => (
-              <EvidenceCard key={v.audio.key} kind="audio" title={v.audio.title} audio={v.audio} date={v.date}>
-                <details className="transcript">
-                  <summary className="tiny">Transcript</summary>
-                  <p>{v.transcript}</p>
-                </details>
-              </EvidenceCard>
-            ))}
-          </div>
-        ) : (
-          <div className="grid-2">
-            <PendingCard kind="Voice memo" title="Process recording" note="Each memo will include a transcript." ratio="auto" />
-            <PendingCard kind="Google Drive" title="Source folders" note="Links will appear here as “Listen on Drive ↗”." ratio="auto" />
-          </div>
-        )}
-        {sonic.driveLinks.length > 0 && (
-          <ul className="link-list">
-            {sonic.driveLinks.map((d) => (
-              <li key={d.url}>
-                <a href={d.url} target="_blank" rel="noopener noreferrer">
-                  {d.label} ↗
-                </a>
-              </li>
-            ))}
-          </ul>
-        )}
-      </Block>
-
-      <Block label="Ethics" title="Credited and substantially modified">
-        <p className="prose">{sonic.ethics}</p>
       </Block>
 
       <PageNext slug="audio" />
