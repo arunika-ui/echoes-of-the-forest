@@ -1,15 +1,10 @@
 import { Block } from '../components/Block'
-import { Cite } from '../components/Cite'
-import { EvidenceCard } from '../components/EvidenceCard'
 import { MediaFigure } from '../components/Media'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
-import { PendingCard } from '../components/PendingCard'
 import { Reveal } from '../components/Reveal'
 import { blenderProcess as bp, pageBySlug } from '../data/projectData'
 import { usePageTitle } from './usePageTitle'
-
-
 
 export function ProcessPage() {
   const page = pageBySlug('process')
@@ -19,37 +14,28 @@ export function ProcessPage() {
       <PageIntro page={page} />
 
       <Block label="Textures" title="Texture sets" lede={<p>{bp.textureMaps}</p>} wide>
-        <Reveal as="ul" className="textures" stagger>
-          {bp.textures.map((t) => (
-            <li key={t.id}>
-              <MediaFigure media={t.media} sizes="(min-width: 900px) 22vw, 50vw" />
-              <p className="textures__name">
-                {t.id}
-                {'ref' in t && t.ref && <Cite ids={[t.ref]} />}
-              </p>
-              <p className="muted">{'ref' in t ? `${t.use} · ambientCG, CC0` : t.use}</p>
-            </li>
-          ))}
-        </Reveal>
-        <div className="grid-2 mt">
-          <PendingCard kind="Screenshots" title="Texturing in Blender" ratio="auto" />
-          <a className="download-card" href={bp.texturesZip.href} download>
-            <span className="tiny muted">ZIP · {bp.texturesZip.size}</span>
-            <span className="download-card__title">Download texture files ↓</span>
-          </a>
-        </div>
-      </Block>
-
-      <Block label="Optimisation" title="Optimisation report" wide>
-        <PendingCard kind="PDF" title="Optimisation report" ratio="auto" />
-      </Block>
-
-      <Block label="Screenshots" title="Blender process" wide>
-        <div className="grid-2">
-          {bp.screenshots.map((s) => (
-            <EvidenceCard key={s.title} kind="image" title={s.title} media={s.media} inquiry="Documents how the original low-poly models were built." />
+        <div className="texsets">
+          {bp.textureSets.map((set) => (
+            <section key={set.name} className="texset" aria-label={set.name}>
+              <h3 className="texset__name">
+                {set.name} <span className="tiny muted">{set.maps.length} maps</span>
+              </h3>
+              <Reveal as="ul" className="textures" stagger>
+                {set.maps.map((map) => (
+                  <li key={map.file}>
+                    <MediaFigure media={map.media} sizes="(min-width: 900px) 18vw, 50vw" />
+                    <p className="textures__map">{map.label}</p>
+                    <p className="tiny muted">{map.file}</p>
+                  </li>
+                ))}
+              </Reveal>
+            </section>
           ))}
         </div>
+        <a className="download-card mt" href={bp.texturesZip.href} download>
+          <span className="tiny muted">ZIP · {bp.texturesZip.size}</span>
+          <span className="download-card__title">Download all texture files ↓</span>
+        </a>
       </Block>
 
       <PageNext slug="process" />

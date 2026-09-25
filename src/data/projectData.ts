@@ -74,7 +74,7 @@ export const pages: PageDef[] = [
   { n: '03', slug: 'research', path: '/research', nav: 'Research', title: 'Research', intro: 'XR platform research, the low-poly style, colour, lighting and environmental design.', group: 'research', tone: 'golden' },
   { n: '04', slug: 'moodboard', path: '/moodboard', nav: 'Moodboard', title: 'Visual Moodboard', intro: 'One composed moodboard that fixes the visual identity of the forest and campsite.', group: 'research', tone: 'golden' },
   { n: '05', slug: 'learning', path: '/learning', nav: 'Technical Learning', title: 'Technical Learning', intro: 'Identified skill gaps, a learning plan, and the resources used to close them.', group: 'research', tone: 'golden' },
-  { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'Textures, optimisation and screenshots from Blender.', group: 'development', tone: 'forest' },
+  { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'The texture sets used in Blender.', group: 'development', tone: 'forest' },
   { n: '07', slug: 'assets', path: '/assets', nav: 'Asset Development', title: 'Asset Development', intro: 'The visual and audio asset trackers — planned assets, budgets and honest status.', group: 'development', tone: 'forest' },
   { n: '08', slug: 'audio', path: '/audio', nav: 'Sonic Development', title: 'Sonic Development', intro: 'Sound changes alongside light to communicate the passage of time.', group: 'development', tone: 'forest' },
   { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Real milestones only, taken from the dates of the project files.', group: 'development', tone: 'dusk' },
@@ -335,20 +335,61 @@ export const blenderProcess = {
     { pattern: '<Set><No.>_1K-JPG_<Map>.jpg', example: 'Bark014_1K-JPG_Color.jpg · _NormalGL · _Roughness' },
     { pattern: '<Project>_FINAL.blend', example: 'ForestEscape_FINAL.blend' },
   ],
-  textures: [
-    { id: 'Bark014', use: 'Pine tree trunk', folder: 'Textures/BARK', media: m('textures/Bark014', 'Bark014', 'Bark014 bark texture preview', '1/1'), ref: 'ambientcg-bark014' },
-    { id: 'LeafSet029', use: 'Pine tree foliage', folder: 'Textures/LEAF1', media: m('textures/LeafSet029', 'LeafSet029', 'LeafSet029 leaf texture preview', '1/1'), ref: 'ambientcg-leafset029' },
-    { id: 'Grass002', use: 'Foliage and ground', folder: 'Textures/LEAF 2', media: m('textures/Grass002', 'Grass002', 'Grass002 grass texture preview', '1/1'), ref: 'ambientcg-grass002' },
-    { id: 'Fabric046', use: 'Camping tent', folder: 'Textures/TENT', media: m('textures/Fabric046', 'Fabric046', 'Fabric046 fabric texture preview', '1/1'), ref: 'ambientcg-fabric046' },
-
-    { id: 'Logs', use: 'Color · Normal · Roughness · Displacement', media: m('textures/Logs', 'Logs', 'Logs texture preview', '1/1') },
-    { id: 'Stones', use: 'Color · Normal · Roughness', media: m('textures/Stones', 'Stones', 'Stones texture preview', '1/1') },
-    { id: 'Mossy Ground', use: 'Base colour · Roughness · Height', media: m('textures/MossyGround', 'Mossy Ground', 'Mossy Ground texture preview', '1/1') },
-    { id: 'Ground Dirt 03', use: 'Base colour · Normal · Roughness', media: m('textures/GroundDirt', 'Ground Dirt 03', 'Ground Dirt 03 texture preview', '1/1') },
-    { id: 'Rocks 08', use: 'Diffuse · Normal · Roughness · Specular · Height', media: m('textures/Rocks08', 'Rocks 08', 'Rocks 08 texture preview', '1/1') },
-    { id: 'Plant 8', use: 'Colour · Normal · Displacement', media: m('textures/Plant8', 'Plant 8', 'Plant 8 texture preview', '1/1') },
+  /** Texture folder — every file, grouped by set. */
+  textureSets: [
+    {
+      name: 'Logs',
+      maps: [
+        { label: 'Color', file: 'Logs Color.jpg', media: m('textures/maps/logs-color', 'Logs — Color', 'Logs color map', '1/1') },
+        { label: 'Normal', file: 'Logs Normal.jpg', media: m('textures/maps/logs-normal', 'Logs — Normal', 'Logs normal map', '1/1') },
+        { label: 'Roughness', file: 'Logs Roughness.jpg', media: m('textures/maps/logs-roughness', 'Logs — Roughness', 'Logs roughness map', '1/1') },
+        { label: 'Displacement', file: 'Logs Displacement.jpg', media: m('textures/maps/logs-displacement', 'Logs — Displacement', 'Logs displacement map', '1/1') },
+      ],
+    },
+    {
+      name: 'Stones',
+      maps: [
+        { label: 'Color', file: 'Stones Color.jpg', media: m('textures/maps/stones-color', 'Stones — Color', 'Stones color map', '1/1') },
+        { label: 'Normal', file: 'Stones Normal.jpg', media: m('textures/maps/stones-normal', 'Stones — Normal', 'Stones normal map', '1/1') },
+        { label: 'Roughness', file: 'Stones Roughness.jpg', media: m('textures/maps/stones-roughness', 'Stones — Roughness', 'Stones roughness map', '1/1') },
+      ],
+    },
+    {
+      name: 'Mossy Ground',
+      maps: [
+        { label: 'Base colour', file: 'Mossy Ground_basecolor.jpg', media: m('textures/maps/mossy-ground-basecolor', 'Mossy Ground — Base colour', 'Mossy Ground base colour map', '1/1') },
+        { label: 'Roughness', file: 'Mossy Ground_roughness.jpg', media: m('textures/maps/mossy-ground-roughness', 'Mossy Ground — Roughness', 'Mossy Ground roughness map', '1/1') },
+        { label: 'Height', file: 'Mossy Ground_height.png', media: m('textures/maps/mossy-ground-height', 'Mossy Ground — Height', 'Mossy Ground height map', '1/1') },
+      ],
+    },
+    {
+      name: 'Ground Dirt 03',
+      maps: [
+        { label: 'Base colour', file: 'T_GroundDirt_03_basecolor.jpg', media: m('textures/maps/t-grounddirt-03-basecolor', 'Ground Dirt 03 — Base colour', 'Ground Dirt 03 base colour map', '1/1') },
+        { label: 'Normal (OpenGL)', file: 'T_GroundDirt_03_normalOGL.jpg', media: m('textures/maps/t-grounddirt-03-normalogl', 'Ground Dirt 03 — Normal (OpenGL)', 'Ground Dirt 03 normal (opengl) map', '1/1') },
+        { label: 'Roughness', file: 'T_GroundDirt_03_roughness.jpg', media: m('textures/maps/t-grounddirt-03-roughness', 'Ground Dirt 03 — Roughness', 'Ground Dirt 03 roughness map', '1/1') },
+      ],
+    },
+    {
+      name: 'Rocks 08',
+      maps: [
+        { label: 'Diffuse', file: 'rocks08_diffuse.jpg', media: m('textures/maps/rocks08-diffuse', 'Rocks 08 — Diffuse', 'Rocks 08 diffuse map', '1/1') },
+        { label: 'Normal (OpenGL)', file: 'rocks08_normal_opengl.jpg', media: m('textures/maps/rocks08-normal-opengl', 'Rocks 08 — Normal (OpenGL)', 'Rocks 08 normal (opengl) map', '1/1') },
+        { label: 'Roughness', file: 'rocks08_roughness.jpg', media: m('textures/maps/rocks08-roughness', 'Rocks 08 — Roughness', 'Rocks 08 roughness map', '1/1') },
+        { label: 'Specular', file: 'rocks08_specular.jpg', media: m('textures/maps/rocks08-specular', 'Rocks 08 — Specular', 'Rocks 08 specular map', '1/1') },
+        { label: 'Height', file: 'rocks08_height.tif', media: m('textures/maps/rocks08-height', 'Rocks 08 — Height', 'Rocks 08 height map', '1/1') },
+      ],
+    },
+    {
+      name: 'Plant 8',
+      maps: [
+        { label: 'Colour', file: 'plant-8.jpg', media: m('textures/maps/plant-8', 'Plant 8 — Colour', 'Plant 8 colour map', '1/1') },
+        { label: 'Normal', file: 'plant-8_normal.jpg', media: m('textures/maps/plant-8-normal', 'Plant 8 — Normal', 'Plant 8 normal map', '1/1') },
+        { label: 'Displacement', file: 'plant-8_displacement.jpg', media: m('textures/maps/plant-8-displacement', 'Plant 8 — Displacement', 'Plant 8 displacement map', '1/1') },
+      ],
+    },
   ],
-  textureMaps: 'PBR texture sets used on the models and environment.',
+  textureMaps: 'Every map in the texture folder, grouped by set.',
   texturesZip: { href: '/downloads/echoes-textures.zip', size: '34 MB' },
   /** Measured with glTF-Transform. Before = Blender export; after = embedded textures re-encoded as WebP (max 1K). */
   optimisation: [
