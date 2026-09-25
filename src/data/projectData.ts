@@ -79,7 +79,7 @@ export const pages: PageDef[] = [
   { n: '08', slug: 'audio', path: '/audio', nav: 'Sonic Development', title: 'Sonic Development', intro: 'Sound changes alongside light to communicate the passage of time.', group: 'development', tone: 'forest' },
   { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Every milestone, from research to final submission.', group: 'development', tone: 'dusk' },
   { n: '10', slug: 'final', path: '/final', nav: 'Final Environment', title: 'Final VR Environment', intro: 'The assembled forest scene: explore it in 3D, then walk it by day and by night.', group: 'final', tone: 'dusk' },
-  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models, each published on Sketchfab.', group: 'final', tone: 'dusk' },
+  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models. Drag to orbit, scroll to zoom.', group: 'final', tone: 'dusk' },
   { n: '12', slug: 'soundscape', path: '/soundscape', nav: 'Final Soundscape', title: 'Final Soundscape', intro: 'Edited environmental audio assets, and a day → night soundscape prototype.', group: 'final', tone: 'night' },
   { n: '13', slug: 'reflection', path: '/reflection', nav: 'Reflection', title: 'Reflection', intro: 'A final reflection on Progressive Folio 2 and the final submission, and the four reflections from the first weeks.', group: 'close', tone: 'night' },
   { n: '14', slug: 'references', path: '/references', nav: 'Ethics & References', title: 'Ethics & References', intro: 'Ethical considerations and the Harvard reference list.', group: 'close', tone: 'night' },
@@ -521,7 +521,7 @@ export interface FinalModel {
 }
 
 export const finalModels: FinalModel[] = [
-  { name: 'Pine Tree', status: 'complete', src: 'models/pine-tree', alt: 'Interactive 3D model of the low-poly pine tree', polyBudget: '500–700', tris: 372, textures: 'Bark014 · LeafSet029 · Grass002 (1K)', size: 1269728, sketchfabUrl: 'https://skfb.ly/pO6zF' },
+  { name: 'Tree', status: 'complete', src: 'models/pine-tree', alt: 'Interactive 3D model of the low-poly trees', polyBudget: '500–700', tris: 372, textures: 'Bark014 · LeafSet029 · Grass002 (1K)', size: 1269728, sketchfabUrl: 'https://skfb.ly/pO6zF' },
   { name: 'Camping Tent', status: 'complete', src: 'models/camping-tent', alt: 'Interactive 3D model of the low-poly camping tent', polyBudget: '900–1200', tris: 145, textures: 'Fabric046 (1K)', size: 155404, sketchfabUrl: 'https://skfb.ly/pO6AQ' },
   { name: 'Boulder', status: 'complete', src: 'models/boulder', alt: 'Interactive 3D model of the low-poly boulder', polyBudget: '150–300', sketchfabUrl: 'https://skfb.ly/pO6At' },
   { name: 'Campfire', status: 'complete', src: 'models/campfire', alt: 'Interactive 3D model of the low-poly campfire', polyBudget: '300–500', sketchfabUrl: 'https://skfb.ly/pO6BM' },
