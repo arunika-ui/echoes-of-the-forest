@@ -27,6 +27,7 @@ export function MediaFill({
         className={`media-el is-loaded fit-${fit}`}
         src={url}
         muted={ambient}
+        controls={!ambient}
         loop={ambient}
         autoPlay={ambient}
         playsInline

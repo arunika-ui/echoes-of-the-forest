@@ -78,10 +78,10 @@ export const pages: PageDef[] = [
   { n: '07', slug: 'assets', path: '/assets', nav: 'Asset Development', title: 'Asset Development', intro: 'The visual and audio asset trackers — planned assets, budgets and honest status.', group: 'development', tone: 'forest' },
   { n: '08', slug: 'audio', path: '/audio', nav: 'Sonic Development', title: 'Sonic Development', intro: 'Sound changes alongside light to communicate the passage of time.', group: 'development', tone: 'forest' },
   { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Every milestone, from research to final submission.', group: 'development', tone: 'dusk' },
-  { n: '10', slug: 'final', path: '/final', nav: 'Final Environment', title: 'Final VR Environment', intro: 'The assembled forest scene, ready to explore in the browser.', group: 'final', tone: 'dusk' },
-  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models: two complete, two in development.', group: 'final', tone: 'dusk' },
+  { n: '10', slug: 'final', path: '/final', nav: 'Final Environment', title: 'Final VR Environment', intro: 'The assembled forest scene: explore it in 3D, then walk it by day and by night.', group: 'final', tone: 'dusk' },
+  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models, each published on Sketchfab.', group: 'final', tone: 'dusk' },
   { n: '12', slug: 'soundscape', path: '/soundscape', nav: 'Final Soundscape', title: 'Final Soundscape', intro: 'Edited environmental audio assets, and a day → night soundscape prototype.', group: 'final', tone: 'night' },
-  { n: '13', slug: 'reflection', path: '/reflection', nav: 'Reflection', title: 'Reflection', intro: 'Four reflections from the first weeks of the project.', group: 'close', tone: 'night' },
+  { n: '13', slug: 'reflection', path: '/reflection', nav: 'Reflection', title: 'Reflection', intro: 'A final reflection on Progressive Folio 2 and the final submission, and the four reflections from the first weeks.', group: 'close', tone: 'night' },
   { n: '14', slug: 'references', path: '/references', nav: 'Ethics & References', title: 'Ethics & References', intro: 'Ethical considerations and the Harvard reference list.', group: 'close', tone: 'night' },
 ]
 
@@ -367,11 +367,11 @@ export type Status = 'complete' | 'in-progress' | 'not-started'
 export const visualAssets = [
   { name: 'Pine Tree', type: '3D', category: 'Environment', description: 'Main forest tree', texture: 'pineTree.png', resolution: '1024×1024', lighting: 'Sun/Moon', relatedTo: 'Forest', polys: '500–700', status: 'complete' as Status },
   { name: 'Camping Tent', type: '3D', category: 'Environment', description: 'Campsite tent', texture: 'tent.png', resolution: '1024×1024', lighting: 'Campfire', relatedTo: 'Campsite', polys: '900–1200', status: 'complete' as Status },
-  { name: 'Campfire', type: '3D', category: 'Environment', description: 'Campfire with logs', texture: 'campfire.png', resolution: '512×512', lighting: 'Fire', relatedTo: 'Campsite', polys: '300–500', status: 'not-started' as Status },
+  { name: 'Campfire', type: '3D', category: 'Environment', description: 'Campfire with logs', texture: 'campfire.png', resolution: '512×512', lighting: 'Fire', relatedTo: 'Campsite', polys: '300–500', status: 'complete' as Status },
   { name: 'Lantern', type: '3D', category: 'Prop', description: 'Vintage lantern', texture: 'lantern.png', resolution: '512×512', lighting: 'Emissive', relatedTo: 'Campsite', polys: '250–400', status: 'not-started' as Status },
   { name: 'Backpack', type: '3D', category: 'Prop', description: 'Hiking backpack', texture: 'backpack.png', resolution: '1024×1024', lighting: 'Campfire', relatedTo: 'Campsite', polys: '400–600', status: 'not-started' as Status },
   { name: 'Wooden Log', type: '3D', category: 'Environment', description: 'Seat/log', texture: 'woodLog.png', resolution: '512×512', lighting: 'Fire', relatedTo: 'Campsite', polys: '150–250', status: 'not-started' as Status },
-  { name: 'Rock', type: '3D', category: 'Environment', description: 'Forest rock', texture: 'rock.png', resolution: '512×512', lighting: 'Natural', relatedTo: 'Forest', polys: '150–300', status: 'not-started' as Status },
+  { name: 'Boulder', type: '3D', category: 'Environment', description: 'Forest rock', texture: 'rock.png', resolution: '512×512', lighting: 'Natural', relatedTo: 'Forest', polys: '150–300', status: 'complete' as Status },
   { name: 'Bush', type: '3D', category: 'Vegetation', description: 'Forest bush', texture: 'bush.png', resolution: '512×512', lighting: 'Natural', relatedTo: 'Forest', polys: '150–250', status: 'not-started' as Status },
   { name: 'Trail Sign', type: '3D', category: 'Prop', description: 'Navigation sign', texture: 'trailSign.png', resolution: '512×512', lighting: 'Sun', relatedTo: 'Trail', polys: '200–350', status: 'not-started' as Status },
 ]
@@ -499,7 +499,11 @@ export const finalEnvironment = {
     { title: 'Campfire', media: m('final/render-campfire', 'Campfire render', 'Render of the campsite lit by the campfire', '16/9') },
     { title: 'Moonlight', media: m('final/render-moonlight', 'Moonlight render', 'Render of the forest under cool moonlight', '16/9') },
   ],
-  walkthrough: m('final/walkthrough', 'Walkthrough / Quest capture', 'Walkthrough of the environment captured on Meta Quest', '16/9'),
+  /** Walkthrough films with their environmental audio. */
+  films: [
+    { title: 'Day', note: 'Afternoon light, birds and running water.', media: m('final/forest-day', 'Day walkthrough', 'Walkthrough of the low-poly forest in warm daytime light', '16/9') },
+    { title: 'Night', note: 'Moonlight, crickets and the campfire.', media: m('final/forest-night', 'Night walkthrough', 'Walkthrough of the forest at night, lit by moonlight and the campfire', '16/9') },
+  ],
 }
 
 /* ── 11 Final Models ──────────────────────────────────────────────────── */
@@ -517,10 +521,10 @@ export interface FinalModel {
 }
 
 export const finalModels: FinalModel[] = [
-  { name: 'Pine Tree', status: 'complete', src: 'models/pine-tree', alt: 'Interactive 3D model of the low-poly pine tree', polyBudget: '500–700', tris: 372, textures: 'Bark014 · LeafSet029 · Grass002 (1K)', size: 1269728, sketchfabUrl: '' },
-  { name: 'Camping Tent', status: 'complete', src: 'models/camping-tent', alt: 'Interactive 3D model of the low-poly camping tent', polyBudget: '900–1200', tris: 145, textures: 'Fabric046 (1K)', size: 155404, sketchfabUrl: '' },
-  { status: 'in-development' },
-  { status: 'in-development' },
+  { name: 'Pine Tree', status: 'complete', src: 'models/pine-tree', alt: 'Interactive 3D model of the low-poly pine tree', polyBudget: '500–700', tris: 372, textures: 'Bark014 · LeafSet029 · Grass002 (1K)', size: 1269728, sketchfabUrl: 'https://skfb.ly/pO6zF' },
+  { name: 'Camping Tent', status: 'complete', src: 'models/camping-tent', alt: 'Interactive 3D model of the low-poly camping tent', polyBudget: '900–1200', tris: 145, textures: 'Fabric046 (1K)', size: 155404, sketchfabUrl: 'https://skfb.ly/pO6AQ' },
+  { name: 'Boulder', status: 'complete', polyBudget: '150–300', sketchfabUrl: 'https://skfb.ly/pO6At' },
+  { name: 'Campfire', status: 'complete', polyBudget: '300–500', sketchfabUrl: 'https://skfb.ly/pO6BM' },
 ]
 
 /* ── 12 Final Soundscape ──────────────────────────────────────────────── */
@@ -537,6 +541,33 @@ export const soundscape = {
 /* ── 13 Reflection (SELF REFLECTION.docx) ─────────────────────────────── */
 
 export const reflection = {
+  /** Final reflection — the four Progressive Folio 2 / final submission prompts. */
+  final: [
+    {
+      id: 'technical-execution',
+      title: 'Technical Execution & Problem Solving',
+      prompt: 'What specific technical progress did you make during this stage, and what unexpected pipeline hurdle did you have to solve to get it done?',
+      text: 'During this stage I completed all four final models in Blender — the pine tree, camping tent, boulder and campfire — and assembled them into the final forest scene, which I captured as a day and a night walkthrough. Every model stayed well inside its polygon budget: the pine tree uses 372 triangles against a 500–700 budget, the tent 145 against 900–1200, and the whole exported scene only 517. The unexpected hurdle came when moving the models from Blender to the web. The exported GLB files were far heavier than their geometry suggested because the 1K PBR textures were embedded at full size, and when I tried compressing the geometry the browser viewer could not load the files without an extra decoder. I solved this by re-optimising each GLB with glTF-Transform, resizing textures to 1024 px and converting them to WebP while leaving geometry uncompressed. On the audio side, the raw clips were too long and had a muddy low end, so in Audacity I trimmed the tent zip to a single pull and the footsteps to 2.5 seconds, cut everything below roughly 300 Hz with a filter-curve EQ, and used a −14 dB, 4:1 compressor to control peaks before exporting 48 kHz WAVs.',
+    },
+    {
+      id: 'timeline-and-scope',
+      title: 'Timeline & Scope Management',
+      prompt: 'How did your actual development speed compare to your original plan, and what specific adjustments did you make to keep your project scope realistic?',
+      text: 'My actual development was slower than I originally planned. My asset tracker listed nine visual assets, including a lantern, backpack, wooden log, bush and trail sign, but learning box modelling, UV unwrapping and texturing as a complete Blender beginner took longer than expected. The textures were only sourced on 25 August, the tree, tent and scene were exported on 27 August, and the final Blender scene was not saved until 22–23 September. To keep the scope realistic I made two main adjustments. First, I committed to four finished, optimised models — the tree, tent, boulder and campfire — instead of nine partly finished ones, choosing the assets that matter most to the walk and to the campsite story. Second, I reorganised the Weeks 13–16 plan so that finalising the 3D assets and textures came first, with audio editing and asset documentation running alongside in Week 14, and the website, references and final reflection left for Weeks 15–16. This continued the decision I made in Weeks 1–4 to narrow a large interactive woodland down to a single forest walk that leads to a hidden campsite.',
+    },
+    {
+      id: 'sourcing-and-creative-decisions',
+      title: 'Sourcing & Creative Decisions',
+      prompt: 'What primary reference source or asset tutorials had the biggest impact on your work during this stage, and how did it change your approach to building your assets?',
+      text: 'Grant Abbitt’s low-poly modelling tutorials had the biggest impact on this stage. Before following them I tried to model detail directly into the mesh, which quickly pushed my polygon counts up and made UV unwrapping difficult. His approach taught me to block out simple silhouettes first and let shape, colour and texture do most of the work, which is why a whole pine tree could be built in only 372 triangles. I combined this with the Blender Manual for UV and export settings, and with CC0 PBR texture sets from ambientCG (Bark014, LeafSet029, Grass002 and Fabric046), which gave the simple forms believable surfaces without adding geometry. Artistically, Bob Ross’s calm landscapes and Princess Mononoke kept me focused on atmosphere rather than detail. For sound I built a sonic moodboard from nine Pixabay clips and then edited them heavily in Audacity so that the final audio assets are my own versions rather than unmodified library sounds.',
+    },
+    {
+      id: 'closing-the-feedback-loop',
+      title: 'Closing the Feedback Loop',
+      prompt: 'What specific piece of feedback did you prioritise for this submission, and how exactly did you apply it to improve your work?',
+      text: 'After reviewing my Progressive Folio 2 feedback in Week 13, I prioritised making my development process visible, instead of only presenting finished results. I applied this in several concrete ways. The Asset Development page now shows both the visual and audio asset trackers with honest status for every asset. The Blender Process page shows every texture map used in each texture set, and the full texture files can be downloaded. The Sonic Development page documents my audio editing with fifteen Audacity screenshots, from the original clips through the EQ, compression, reverb, speed and trimming changes, next to the sourced reference sounds. I also added the Weeks 13–16 plan to the timeline so progress can be compared against it, published all four models on Sketchfab, and added day and night walkthrough films with sound so the final environment can be experienced rather than only described. Finally, I shortened the visible text across the site so that the evidence is easier to find.',
+    },
+  ],
   sections: [
     { id: 'shift-in-perspective', title: 'Shift in Perspective', text: 'My comprehension of the steps needed in producing an immersive virtual reality experience has evolved dramatically over the last four weeks. I thought that making aesthetically pleasing 3D models was the primary goal of developing a VR environment at the start of the course. But now that I’ve planned my folio and studied VR programming, I realize that good immersive experiences need much more than just eye-catching graphics. Optimization, environmental narrative, user comfort, lighting, audio, and technical performance are all equally significant factors. This change in viewpoint has inspired me to think like both a designer and a developer while making decisions for Echoes of the Forest and has helped me recognize the value of planning before production.' },
     { id: 'scoping-and-prioritisation', title: 'Scoping & Prioritisation', text: 'Before selecting what was feasible to construct, I took into account my experience level and the time I had available. Since I’m new to Blender, I decided on a low-poly art style because it lets me employ basic geometry to produce aesthetically pleasing items with good standalone VR performance. A much bigger woodland with numerous intricate objects and interactive elements was part of my first concept. But I realized it would be challenging to finish this within the semester. I focused on producing fewer, better-quality materials and narrowed the scope to a forest walk that leads to a secret campground. This strategy will enable me to finish the project while preserving a constant level of technical and artistic excellence.' },

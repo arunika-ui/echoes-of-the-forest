@@ -21,16 +21,20 @@ export function FinalPage() {
         </p>
       </section>
 
+      <Block label="Walkthrough" title="Day and night" lede={<p>Two walkthroughs of the finished scene, with sound. Press play and turn your volume up.</p>} wide>
+        <div className="grid-2">
+          {fe.films.map((f) => (
+            <EvidenceCard key={f.title} kind="video" title={f.title} media={f.media} caption={<p>{f.note}</p>} />
+          ))}
+        </div>
+      </Block>
+
       <Block label="Renders" title="Four lighting stages" wide>
         <div className="grid-2">
           {fe.renders.map((r) => (
             <EvidenceCard key={r.title} kind="image" title={r.title} media={r.media} />
           ))}
         </div>
-      </Block>
-
-      <Block label="Walkthrough" title="Quest capture" wide>
-        <EvidenceCard kind="video" title="Walkthrough" media={fe.walkthrough} />
       </Block>
 
       <PageNext slug="final" />

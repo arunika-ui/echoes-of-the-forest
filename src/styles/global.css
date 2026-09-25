@@ -2437,3 +2437,22 @@ body {
     grid-column: 1 / -1;
   }
 }
+
+/* Model published only on Sketchfab */
+.model__sketchfab {
+  text-decoration: none;
+  transition: border-color 0.2s ease;
+}
+.model__sketchfab:hover,
+.model__sketchfab:focus-visible {
+  border-color: var(--accent);
+}
+.model__sketchfab .pending__title {
+  font-size: 1.25rem;
+}
+
+/* Final reflection prompts */
+.reflection__prompt {
+  margin: 0.35rem 0 0.9rem;
+  font-style: italic;
+}
