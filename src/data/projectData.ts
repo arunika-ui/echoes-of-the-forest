@@ -489,6 +489,34 @@ export const timeline: Milestone[] = [
   { date: 'To be added', title: 'Renders & walkthrough', text: 'Lighting-stage renders and a Quest walkthrough capture.', kind: 'future' },
 ]
 
+/** Final folio plan, Weeks 13–16 (SIT253_Final_Folio_Timeline_Updated.xlsx). */
+export type PlanStatus = 'complete' | 'in-progress' | 'planned'
+export const finalPlan = {
+  weeks: [13, 14, 15, 16],
+  file: { href: '/downloads/SIT253_Final_Folio_Timeline_Updated.xlsx', label: 'Timeline spreadsheet (.xlsx)' },
+  tasks: [
+    { task: 'Review Progressive Folio 2 feedback', start: 13, end: 13, status: 'complete' },
+    { task: 'Finalise 3D visual assets', start: 13, end: 14, status: 'complete' },
+    { task: 'Finalise textures & materials', start: 13, end: 14, status: 'complete' },
+    { task: 'Organise asset management', start: 14, end: 14, status: 'in-progress' },
+    { task: 'Capture asset management evidence', start: 14, end: 14, status: 'in-progress' },
+    { task: 'Record / finalise original audio assets', start: 13, end: 14, status: 'in-progress' },
+    { task: 'Edit and document audio assets', start: 14, end: 14, status: 'in-progress' },
+    { task: 'Finalise lighting & composition', start: 14, end: 14, status: 'planned' },
+    { task: 'Produce final asset renders', start: 14, end: 15, status: 'planned' },
+    { task: 'Produce final environment renders', start: 14, end: 15, status: 'planned' },
+    { task: 'Update concept & development documentation', start: 14, end: 15, status: 'planned' },
+    { task: 'Finalise website / online folio', start: 15, end: 16, status: 'planned' },
+    { task: 'Add development comparison', start: 15, end: 15, status: 'planned' },
+    { task: 'Complete final reflection', start: 15, end: 15, status: 'planned' },
+    { task: 'Complete ethics & GenAI documentation', start: 15, end: 15, status: 'planned' },
+    { task: 'Finalise references', start: 15, end: 15, status: 'planned' },
+    { task: 'Final folio review & corrections', start: 16, end: 16, status: 'planned' },
+    { task: 'Create frozen folio PDF', start: 16, end: 16, status: 'planned' },
+    { task: 'Final submission', start: 16, end: 16, status: 'planned' },
+  ] as { task: string; start: number; end: number; status: PlanStatus }[],
+}
+
 /* ── 10 Final Environment ─────────────────────────────────────────────── */
 
 export const finalEnvironment = {

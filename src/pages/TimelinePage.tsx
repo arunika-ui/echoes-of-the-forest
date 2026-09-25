@@ -1,10 +1,11 @@
 import { Block } from '../components/Block'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
-import { PendingCard } from '../components/PendingCard'
 import { Reveal } from '../components/Reveal'
-import { pageBySlug, timeline } from '../data/projectData'
+import { finalPlan, pageBySlug, timeline, type PlanStatus } from '../data/projectData'
 import { usePageTitle } from './usePageTitle'
+
+const planLabel: Record<PlanStatus, string> = { complete: 'Completed', 'in-progress': 'In progress', planned: 'Planned' }
 
 export function TimelinePage() {
   const page = pageBySlug('timeline')
@@ -12,6 +13,41 @@ export function TimelinePage() {
   return (
     <>
       <PageIntro page={page} />
+      <Block label="Weeks 13–16" title="Final folio plan" wide>
+        <div className="table-wrap" role="region" aria-label="Final folio plan, weeks 13 to 16" tabIndex={0}>
+          <table className="table gantt">
+            <thead>
+              <tr>
+                <th scope="col">Task</th>
+                {finalPlan.weeks.map((w) => (
+                  <th key={w} scope="col" className="gantt__wk">
+                    W{w}
+                  </th>
+                ))}
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {finalPlan.tasks.map((t) => (
+                <tr key={t.task}>
+                  <th scope="row">{t.task}</th>
+                  {finalPlan.weeks.map((w) => (
+                    <td key={w} className="gantt__cell">
+                      {w >= t.start && w <= t.end && <span className={`gantt__bar is-${t.status}`} aria-label={`Week ${w}`} />}
+                    </td>
+                  ))}
+                  <td>
+                    <span className={`badge badge--${t.status}`}>{planLabel[t.status]}</span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <a className="text-link mt-sm" href={finalPlan.file.href} download>
+          Download {finalPlan.file.label} ↓
+        </a>
+      </Block>
       <section className="frame block" aria-label="Milestones">
         <div className="ed">
           <p className="ed__side tiny">Milestones</p>
@@ -32,9 +68,6 @@ export function TimelinePage() {
           </Reveal>
         </div>
       </section>
-      <Block label="Files" title="Timeline evidence">
-        <PendingCard kind="ZIP" title="Timeline files" ratio="auto" />
-      </Block>
       <PageNext slug="timeline" />
     </>
   )

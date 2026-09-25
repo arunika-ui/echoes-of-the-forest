@@ -3264,3 +3264,33 @@ body {
   font-size: 0.85rem;
   color: var(--muted, #a89f90);
 }
+
+/* Final folio Gantt */
+.gantt th[scope='row'] {
+  font-weight: 500;
+  white-space: nowrap;
+}
+.gantt__wk,
+.gantt__cell {
+  width: 11%;
+  text-align: center;
+}
+.gantt__cell {
+  padding-inline: 2px !important;
+}
+.gantt__bar {
+  display: block;
+  height: 10px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.gantt__bar.is-complete {
+  background: #8fbf8a;
+}
+.gantt__bar.is-in-progress {
+  background: #e0a860;
+}
+.mt-sm {
+  display: inline-block;
+  margin-top: 1rem;
+}
