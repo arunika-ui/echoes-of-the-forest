@@ -18,23 +18,25 @@ export function ProcessPage() {
     <>
       <PageIntro page={page} />
 
-      <Block label="Textures" title="Four 1K PBR sets" lede={<p>{bp.textureMaps}</p>} wide>
+      <Block label="Textures" title="Texture sets" lede={<p>{bp.textureMaps}</p>} wide>
         <Reveal as="ul" className="textures" stagger>
           {bp.textures.map((t) => (
             <li key={t.id}>
               <MediaFigure media={t.media} sizes="(min-width: 900px) 22vw, 50vw" />
               <p className="textures__name">
                 {t.id}
-                <Cite ids={[t.ref]} />
+                {'ref' in t && t.ref && <Cite ids={[t.ref]} />}
               </p>
-              <p className="tiny muted">{t.folder}</p>
-              <p className="muted">{t.use} · ambientCG, CC0</p>
+              <p className="muted">{'ref' in t ? `${t.use} · ambientCG, CC0` : t.use}</p>
             </li>
           ))}
         </Reveal>
         <div className="grid-2 mt">
           <PendingCard kind="Screenshots" title="Texturing in Blender" ratio="auto" />
-          <PendingCard kind="ZIP" title="Texture files" ratio="auto" />
+          <a className="download-card" href={bp.texturesZip.href} download>
+            <span className="tiny muted">ZIP · {bp.texturesZip.size}</span>
+            <span className="download-card__title">Download texture files ↓</span>
+          </a>
         </div>
       </Block>
 

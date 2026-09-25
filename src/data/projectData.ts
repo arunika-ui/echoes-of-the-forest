@@ -340,8 +340,16 @@ export const blenderProcess = {
     { id: 'LeafSet029', use: 'Pine tree foliage', folder: 'Textures/LEAF1', media: m('textures/LeafSet029', 'LeafSet029', 'LeafSet029 leaf texture preview', '1/1'), ref: 'ambientcg-leafset029' },
     { id: 'Grass002', use: 'Foliage and ground', folder: 'Textures/LEAF 2', media: m('textures/Grass002', 'Grass002', 'Grass002 grass texture preview', '1/1'), ref: 'ambientcg-grass002' },
     { id: 'Fabric046', use: 'Camping tent', folder: 'Textures/TENT', media: m('textures/Fabric046', 'Fabric046', 'Fabric046 fabric texture preview', '1/1'), ref: 'ambientcg-fabric046' },
+
+    { id: 'Logs', use: 'Color · Normal · Roughness · Displacement', media: m('textures/Logs', 'Logs', 'Logs texture preview', '1/1') },
+    { id: 'Stones', use: 'Color · Normal · Roughness', media: m('textures/Stones', 'Stones', 'Stones texture preview', '1/1') },
+    { id: 'Mossy Ground', use: 'Base colour · Roughness · Height', media: m('textures/MossyGround', 'Mossy Ground', 'Mossy Ground texture preview', '1/1') },
+    { id: 'Ground Dirt 03', use: 'Base colour · Normal · Roughness', media: m('textures/GroundDirt', 'Ground Dirt 03', 'Ground Dirt 03 texture preview', '1/1') },
+    { id: 'Rocks 08', use: 'Diffuse · Normal · Roughness · Specular · Height', media: m('textures/Rocks08', 'Rocks 08', 'Rocks 08 texture preview', '1/1') },
+    { id: 'Plant 8', use: 'Colour · Normal · Displacement', media: m('textures/Plant8', 'Plant 8', 'Plant 8 texture preview', '1/1') },
   ],
-  textureMaps: 'Each set is 1K (1024 × 1024) with Color, Normal (GL/DX), Roughness, Ambient Occlusion and Displacement maps — CC0 from ambientCG.',
+  textureMaps: 'PBR texture sets used on the models and environment.',
+  texturesZip: { href: '/downloads/echoes-textures.zip', size: '34 MB' },
   /** Measured with glTF-Transform. Before = Blender export; after = embedded textures re-encoded as WebP (max 1K). */
   optimisation: [
     { model: 'Pine Tree', file: '3D_TreesModel.glb', budget: '500–700', tris: 372, before: 9102532, after: 1269728 },
@@ -430,6 +438,24 @@ export const sonicMoodboard: SourceClip[] = [
 export const sonic = {
   why: 'The noises of the surrounding environment change from birds and running water to crickets, a little wind, and the crackling of the bonfire. Sound changes alongside lighting to communicate the passage of time — and it is one of the two halves of the folio inquiry.',
   edits: ['EQ', 'Noise reduction', 'Layering', 'Looping', 'Trimming'],
+  /** Audacity editing screenshots. */
+  editingShots: [
+    m('audio/editing/01-crickets', 'Crickets — clip in Audacity', 'Audacity screenshot: Crickets — clip in Audacity', '16/9', 'Crickets — clip in Audacity'),
+    m('audio/editing/02-filter-curve-eq', 'Filter Curve EQ — low end cut below ~300 Hz', 'Audacity screenshot: Filter Curve EQ — low end cut below ~300 Hz', '16/9', 'Filter Curve EQ — low end cut below ~300 Hz'),
+    m('audio/editing/03-reverb-large', 'Reverb — room 100%, pre-delay 55 ms', 'Audacity screenshot: Reverb — room 100%, pre-delay 55 ms', '16/9', 'Reverb — room 100%, pre-delay 55 ms'),
+    m('audio/editing/04-compressor', 'Compressor — −14 dB threshold, 4:1 ratio', 'Audacity screenshot: Compressor — −14 dB threshold, 4:1 ratio', '16/9', 'Compressor — −14 dB threshold, 4:1 ratio'),
+    m('audio/editing/05-speed-pitch', 'Change Speed and Pitch — 0.85× (−15%)', 'Audacity screenshot: Change Speed and Pitch — 0.85× (−15%)', '16/9', 'Change Speed and Pitch — 0.85× (−15%)'),
+    m('audio/editing/06-reverb-small', 'Reverb — pre-delay 10 ms, high tone 0%', 'Audacity screenshot: Reverb — pre-delay 10 ms, high tone 0%', '16/9', 'Reverb — pre-delay 10 ms, high tone 0%'),
+    m('audio/editing/07-tent-zip-original', 'Tent zipper — original clip', 'Audacity screenshot: Tent zipper — original clip', '16/9', 'Tent zipper — original clip'),
+    m('audio/editing/08-tent-zip-trimmed', 'Tent zipper — trimmed to one pull', 'Audacity screenshot: Tent zipper — trimmed to one pull', '16/9', 'Tent zipper — trimmed to one pull'),
+    m('audio/editing/09-wind-a', 'Wind 2 — before', 'Audacity screenshot: Wind 2 — before', '16/9', 'Wind 2 — before'),
+    m('audio/editing/10-wind-b', 'Wind 2 — after', 'Audacity screenshot: Wind 2 — after', '16/9', 'Wind 2 — after'),
+    m('audio/editing/11-reverb-dry', 'Reverb — room 100%, dry −10 dB', 'Audacity screenshot: Reverb — room 100%, dry −10 dB', '16/9', 'Reverb — room 100%, dry −10 dB'),
+    m('audio/editing/12-footsteps-original', 'Footsteps — original clip', 'Audacity screenshot: Footsteps — original clip', '16/9', 'Footsteps — original clip'),
+    m('audio/editing/13-footsteps-trimmed', 'Footsteps — trimmed to 2.5 s', 'Audacity screenshot: Footsteps — trimmed to 2.5 s', '16/9', 'Footsteps — trimmed to 2.5 s'),
+    m('audio/editing/14-water-a', 'Water — in Audacity (1)', 'Audacity screenshot: Water — in Audacity (1)', '16/9', 'Water — in Audacity (1)'),
+    m('audio/editing/15-water-b', 'Water — in Audacity (2)', 'Audacity screenshot: Water — in Audacity (2)', '16/9', 'Water — in Audacity (2)'),
+  ],
   /** Source vs edited pairs — add when edited versions exist. */
   comparisons: [] as { title: string; before: AudioItem; after: AudioItem }[],
   dawScreenshot: m('audio/daw-screenshot', 'DAW screenshot', 'Audio editing session in the DAW'),

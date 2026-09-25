@@ -3228,3 +3228,39 @@ body {
 .hx {
   min-height: min(calc(100svh - var(--nav-h)), 980px);
 }
+
+/* Download card (matches .pending footprint) */
+.download-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1.25rem 1.1rem;
+  border: 1px solid var(--line, rgba(255, 255, 255, 0.12));
+  border-radius: 6px;
+  background: var(--surface);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+.download-card:hover,
+.download-card:focus-visible {
+  border-color: var(--accent);
+  background: var(--surface-2);
+}
+.download-card__title {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+/* Editing screenshots */
+.shots .media-frame {
+  background: #0d0b08;
+  border-radius: 6px;
+}
+.shots figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--muted, #a89f90);
+}

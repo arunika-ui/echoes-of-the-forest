@@ -4,7 +4,8 @@ import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
-import { PendingCard } from '../components/PendingCard'
+import { useLightbox } from '../components/Lightbox'
+import { MediaFigure } from '../components/Media'
 import { Reveal } from '../components/Reveal'
 import { pageBySlug, sonic, sonicMoodboard } from '../data/projectData'
 import { usePageTitle } from './usePageTitle'
@@ -12,6 +13,7 @@ import { usePageTitle } from './usePageTitle'
 export function AudioPage() {
   const page = pageBySlug('audio')
   usePageTitle(page.nav)
+  const lb = useLightbox(sonic.editingShots)
   return (
     <>
       <PageIntro page={page} />
@@ -56,11 +58,15 @@ export function AudioPage() {
             <li key={e}>{e}</li>
           ))}
         </ul>
-        <div className="grid-3 mt">
-          <PendingCard kind="Screenshot" title="Editing screenshot 1" />
-          <PendingCard kind="Screenshot" title="Editing screenshot 2" />
-          <PendingCard kind="Screenshot" title="Editing screenshot 3" />
-        </div>
+        <Reveal as="ul" className="grid-3 shots mt" stagger>
+          {sonic.editingShots.map((shot, i) => (
+            <li key={shot.key}>
+              <MediaFigure media={shot} fit="contain" onOpen={() => lb.open(i)} sizes="(min-width: 900px) 30vw, 100vw" />
+            </li>
+          ))}
+        </Reveal>
+        <p className="tiny muted mt">Click a screenshot to enlarge.</p>
+        {lb.node}
       </Block>
 
       <PageNext slug="audio" />
