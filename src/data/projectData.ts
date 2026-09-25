@@ -80,7 +80,7 @@ export const pages: PageDef[] = [
   { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Real milestones only, taken from the dates of the project files.', group: 'development', tone: 'dusk' },
   { n: '10', slug: 'final', path: '/final', nav: 'Final Environment', title: 'Final VR Environment', intro: 'The assembled forest scene, ready to explore in the browser.', group: 'final', tone: 'dusk' },
   { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models — two complete, two in development.', group: 'final', tone: 'dusk' },
-  { n: '12', slug: 'soundscape', path: '/soundscape', nav: 'Final Soundscape', title: 'Final Soundscape', intro: 'Ten edited environmental audio assets, and a day → night soundscape prototype.', group: 'final', tone: 'night' },
+  { n: '12', slug: 'soundscape', path: '/soundscape', nav: 'Final Soundscape', title: 'Final Soundscape', intro: 'Edited environmental audio assets, and a day → night soundscape prototype.', group: 'final', tone: 'night' },
   { n: '13', slug: 'reflection', path: '/reflection', nav: 'Reflection', title: 'Reflection', intro: 'Four reflections from the first weeks of the project.', group: 'close', tone: 'night' },
   { n: '14', slug: 'references', path: '/references', nav: 'Ethics & References', title: 'Ethics & References', intro: 'Ethical considerations and the Harvard reference list.', group: 'close', tone: 'night' },
 ]
@@ -380,17 +380,22 @@ export const visualAssets = [
   { name: 'Mushroom Cluster', type: '3D', category: 'Vegetation', description: 'Forest mushrooms', texture: 'mushrooms.png', resolution: '256×256', lighting: 'Natural', relatedTo: 'Forest', polys: '100–150', status: 'not-started' as Status },
 ]
 
-export const audioAssets = [
-  { name: 'Forest Ambience', category: 'Ambient', description: 'Background forest ambience', format: 'WAV', duration: '60 s', relatedTo: 'Environment', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Birdsong', category: 'Ambient', description: 'Bird ambience', format: 'WAV', duration: '20 s', relatedTo: 'Forest', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Wind Through Trees', category: 'Ambient', description: 'Wind in trees', format: 'WAV', duration: '30 s', relatedTo: 'Forest', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Footsteps on Dirt', category: 'Interaction', description: 'Walking', format: 'WAV', duration: '5 s', relatedTo: 'Player', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Campfire Crackling', category: 'Ambient', description: 'Campfire loop', format: 'WAV', duration: '40 s', relatedTo: 'Campsite', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Lantern Ignition', category: 'Interaction', description: 'Lantern sound', format: 'WAV', duration: '3 s', relatedTo: 'Lantern', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Leaves Rustling', category: 'Ambient', description: 'Leaves', format: 'WAV', duration: '20 s', relatedTo: 'Forest', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Wooden Bridge Creak', category: 'Interaction', description: 'Bridge', format: 'WAV', duration: '4 s', relatedTo: 'Bridge', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Backpack Interaction', category: 'Interaction', description: 'Backpack', format: 'WAV', duration: '3 s', relatedTo: 'Backpack', sampleRate: '48 kHz', status: 'not-started' as Status },
-  { name: 'Night Crickets', category: 'Ambient', description: 'Night ambience', format: 'WAV', duration: '30 s', relatedTo: 'Night', sampleRate: '48 kHz', status: 'not-started' as Status },
+/** Edited environmental audio — cleaned WAVs, 48 kHz stereo. Add more as they are produced. */
+export type AudioAsset = { name: string; category: 'Ambient' | 'Interaction'; zone: string; description: string; duration: string; size: number; audio: AudioItem }
+
+const wav = (file: string, name: string, category: AudioAsset['category'], zone: string, duration: string, size: number, description: string): AudioAsset => ({
+  name, category, zone, description, duration, size,
+  audio: a(`audio/edited/${file}`, name, { description, stage: `${category} · ${zone}` }),
+})
+
+export const audioAssets: AudioAsset[] = [
+  wav('running-water', 'Running Water', 'Ambient', 'Trail', '5.0 s', 966850, 'A gentle stream along the trail — part of the daytime layer.'),
+  wav('foliage-rustling', 'Foliage Rustling', 'Ambient', 'Forest', '2.1 s', 408302, 'Leaves moving in the breeze as the user walks between the trees.'),
+  wav('wind-through-trees', 'Wind Through Trees', 'Ambient', 'Forest', '6.3 s', 1212610, 'Soft wind in the canopy as afternoon turns to evening.'),
+  wav('footsteps', 'Footsteps', 'Interaction', 'Player', '2.6 s', 492562, 'The user’s steps on the dirt path.'),
+  wav('tent-zip', 'Tent Zip', 'Interaction', 'Campsite', '0.8 s', 149862, 'The tent zip at the campsite — a sign someone was just here.'),
+  wav('campfire-crackling', 'Campfire Crackling', 'Ambient', 'Campsite', '6.6 s', 1264178, 'The fire at the hidden campsite, the warm focal point at night.'),
+  wav('night-crickets', 'Night Crickets', 'Ambient', 'Night', '1.5 s', 278722, 'Crickets that take over once night falls.'),
 ]
 
 /* ── 08 Sonic Development ─────────────────────────────────────────────── */
@@ -456,7 +461,7 @@ export const timeline: Milestone[] = [
   { date: '27 Aug 2026', title: 'Tree, tent & scene exported', text: 'Fabric046 added for the tent; the pine tree, tent and scene exported as GLB; asset tracker and Folio Enquiry updated.', evidence: '3D_TreesModel.glb · 3D_TentModel.glb · 3D_SceneModel.glb · visual and audio asset.docx', kind: 'done' },
   { date: '22–23 Sep 2026', title: 'Final Blender scene saved', text: 'ForestEscape_FINAL.blend saved.', evidence: 'ForestEscape_FINAL.blend', kind: 'done' },
   { date: 'To be added', title: 'Remaining two models', text: 'The final two of the four models chosen and built.', kind: 'future' },
-  { date: 'To be added', title: 'Audio editing', text: 'Ten edited WAV assets (48 kHz) produced from the sonic moodboard.', kind: 'future' },
+  { date: 'To be added', title: 'Audio editing', text: 'Edited WAVs (48 kHz) — seven so far, more to come.', kind: 'future' },
   { date: 'To be added', title: 'Renders & walkthrough', text: 'Lighting-stage renders and a Quest walkthrough capture.', kind: 'future' },
 ]
 
@@ -497,8 +502,8 @@ export const finalModels: FinalModel[] = [
 /* ── 12 Final Soundscape ──────────────────────────────────────────────── */
 
 export const soundscape = {
-  /** Final edited WAVs — set `audio` on each as it is produced. */
-  finals: audioAssets.map((x) => ({ name: x.name, duration: x.duration, audio: undefined as AudioItem | undefined })),
+  /** Final edited WAVs. */
+  finals: audioAssets,
   mixer: {
     day: sonicMoodboard.filter((s) => ['snd-bird-song', 'snd-forest-ambience', 'snd-leaves-1'].includes(s.ref)),
     night: sonicMoodboard.filter((s) => ['snd-wind', 'snd-crickets', 'snd-campfire'].includes(s.ref)),

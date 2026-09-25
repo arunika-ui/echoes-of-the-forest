@@ -1,7 +1,9 @@
 import { AssetTable } from '../components/AssetTable'
+import { AudioPlayer } from '../components/AudioPlayer'
 import { Block } from '../components/Block'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
+import { Reveal } from '../components/Reveal'
 import { audioAssets, pageBySlug, visualAssets } from '../data/projectData'
 import { usePageTitle } from './usePageTitle'
 
@@ -9,7 +11,6 @@ export function AssetsPage() {
   const page = pageBySlug('assets')
   usePageTitle(page.nav)
   const done = visualAssets.filter((v) => v.status === 'complete').length
-  const audioDone = audioAssets.filter((v) => v.status === 'complete').length
   return (
     <>
       <PageIntro page={page}>
@@ -21,10 +22,8 @@ export function AssetsPage() {
             </dd>
           </div>
           <div>
-            <dt className="tiny muted">Audio assets complete</dt>
-            <dd>
-              {audioDone} / {audioAssets.length}
-            </dd>
+            <dt className="tiny muted">Edited sounds</dt>
+            <dd>{audioAssets.length}</dd>
           </div>
         </dl>
       </PageIntro>
@@ -46,20 +45,14 @@ export function AssetsPage() {
         />
       </Block>
 
-      <Block label="Audio asset tracker" title="Environmental audio" lede={<p>Ten planned edited WAV assets at 48 kHz. None have been started yet — the sourced sonic moodboard clips are reference material only.</p>} wide>
-        <AssetTable
-          caption="Audio asset tracker"
-          rows={audioAssets}
-          columns={[
-            { key: 'name', label: 'Name' },
-            { key: 'category', label: 'Category' },
-            { key: 'description', label: 'Description' },
-            { key: 'format', label: 'Format' },
-            { key: 'duration', label: 'Duration' },
-            { key: 'relatedTo', label: 'Related to' },
-            { key: 'sampleRate', label: 'Sample rate' },
-          ]}
-        />
+      <Block label="Edited audio" title="Environmental audio" lede={<p>Cleaned WAVs, 48 kHz stereo. Press play — one sound plays at a time.</p>} wide>
+        <Reveal as="ul" className="grid-2 sounds" stagger>
+          {audioAssets.map((s) => (
+            <li key={s.name}>
+              <AudioPlayer item={s.audio} credit={`WAV · ${s.duration}`} />
+            </li>
+          ))}
+        </Reveal>
       </Block>
 
       <PageNext slug="assets" />
