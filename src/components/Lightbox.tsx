@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import type { MediaItem } from '../lib/media'
 import { MediaFill } from './Media'
 import { T } from './Text'
@@ -87,12 +87,4 @@ export function Lightbox({
       )}
     </dialog>
   )
-}
-
-export function useLightbox(items: MediaItem[]) {
-  const [index, setIndex] = useState<number | null>(null)
-  return {
-    open: (i: number) => setIndex(i),
-    node: <Lightbox items={items} index={index} onClose={() => setIndex(null)} onIndex={setIndex} />,
-  }
 }

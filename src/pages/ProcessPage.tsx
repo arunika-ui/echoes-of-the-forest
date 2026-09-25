@@ -17,15 +17,14 @@ export function ProcessPage() {
         <div className="texsets">
           {bp.textureSets.map((set) => (
             <section key={set.name} className="texset" aria-label={set.name}>
-              <h3 className="texset__name">
-                {set.name} <span className="tiny muted">{set.maps.length} maps</span>
-              </h3>
+              <h3 className="texset__name">{set.name}</h3>
               <Reveal as="ul" className="textures" stagger>
                 {set.maps.map((map) => (
                   <li key={map.file}>
                     <MediaFigure media={map.media} sizes="(min-width: 900px) 18vw, 50vw" />
-                    <p className="textures__map">{map.label}</p>
-                    <p className="tiny muted">{map.file}</p>
+                    <p className="textures__map" title={map.file}>
+                      {map.label}
+                    </p>
                   </li>
                 ))}
               </Reveal>
@@ -33,8 +32,8 @@ export function ProcessPage() {
           ))}
         </div>
         <a className="download-card mt" href={bp.texturesZip.href} download>
-          <span className="tiny muted">ZIP · {bp.texturesZip.size}</span>
-          <span className="download-card__title">Download all texture files ↓</span>
+          <span className="download-card__title">Download all texture files</span>
+          <span className="tiny">ZIP, {bp.texturesZip.size}</span>
         </a>
       </Block>
 

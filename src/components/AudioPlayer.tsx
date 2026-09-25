@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { resolveMedia, type AudioItem } from '../lib/media'
+import { AUDIO_EVENT, resolveMedia, type AudioItem } from '../lib/media'
 
 const fmt = (s: number) => (Number.isFinite(s) ? `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}` : '0:00')
 const isUrl = (u?: string) => !!u && /^https:\/\//.test(u)
@@ -22,16 +22,16 @@ function Player({ item, url, credit }: { item: AudioItem; url: string; credit?: 
     const onOther = (e: Event) => {
       if ((e as CustomEvent).detail !== ref.current) ref.current?.pause()
     }
-    window.addEventListener('efolio:audio', onOther)
-    return () => window.removeEventListener('efolio:audio', onOther)
+    window.addEventListener(AUDIO_EVENT, onOther)
+    return () => window.removeEventListener(AUDIO_EVENT, onOther)
   }, [])
 
   const toggle = () => {
     const el = ref.current
     if (!el) return
     if (el.paused) {
-      window.dispatchEvent(new CustomEvent('efolio:audio', { detail: el }))
-      void el.play()
+      window.dispatchEvent(new CustomEvent(AUDIO_EVENT, { detail: el }))
+      el.play().catch(() => setPlaying(false))
     } else el.pause()
   }
 
@@ -89,4 +89,3 @@ function Player({ item, url, credit }: { item: AudioItem; url: string; credit?: 
   )
 }
 
-export const hasAudio = (item?: AudioItem) => !!item && !!resolveMedia(item.key)

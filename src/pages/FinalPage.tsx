@@ -24,13 +24,13 @@ export function FinalPage() {
       <Block label="Renders" title="Four lighting stages" wide>
         <div className="grid-2">
           {fe.renders.map((r) => (
-            <EvidenceCard key={r.title} kind="image" title={r.title} media={r.media} inquiry="Shows how lighting changes the atmosphere from afternoon to night." />
+            <EvidenceCard key={r.title} kind="image" title={r.title} media={r.media} />
           ))}
         </div>
       </Block>
 
       <Block label="Walkthrough" title="Quest capture" wide>
-        <EvidenceCard kind="video" title="Walkthrough / Quest capture" media={fe.walkthrough} inquiry="Evidence of the experience running as standalone VR." />
+        <EvidenceCard kind="video" title="Walkthrough" media={fe.walkthrough} />
       </Block>
 
       <PageNext slug="final" />

@@ -24,7 +24,7 @@ export function Block({
   return (
     <section id={id} className={`block frame ${className}`} aria-labelledby={title ? hid : undefined} aria-label={title ? undefined : label}>
       <Reveal className="ed">
-        <p className="ed__side tiny">{label}</p>
+        <p className="ed__side eyebrow">{label}</p>
         <div className="ed__main">
           {title && (
             <h2 id={hid} className="block__title">

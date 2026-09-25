@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import { home } from '../data/projectData'
-import { resolveMedia } from '../lib/media'
+import { AUDIO_EVENT, resolveMedia } from '../lib/media'
+
+const AMBIENT = 'ambient'
 
 /** Optional quiet forest loop. Off by default; never autoplays. */
 export function AmbientToggle() {
@@ -12,14 +14,20 @@ export function AmbientToggle() {
     const el = ref.current
     if (!el) return
     el.volume = 0.18
-    if (on) void el.play()
-    else el.pause()
+    if (!on) {
+      el.pause()
+      return
+    }
+    window.dispatchEvent(new CustomEvent(AUDIO_EVENT, { detail: AMBIENT }))
+    el.play().catch(() => setOn(false))
   }, [on])
 
   useEffect(() => {
-    const off = () => setOn(false)
-    window.addEventListener('efolio:audio', off)
-    return () => window.removeEventListener('efolio:audio', off)
+    const off = (e: Event) => {
+      if ((e as CustomEvent).detail !== AMBIENT) setOn(false)
+    }
+    window.addEventListener(AUDIO_EVENT, off)
+    return () => window.removeEventListener(AUDIO_EVENT, off)
   }, [])
 
   if (!url) return null

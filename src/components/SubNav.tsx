@@ -8,7 +8,7 @@ export function SubNav({ page }: { page: PageDef }) {
   if (siblings.length < 2) return null
   return (
     <nav className="subnav frame" aria-label={`${group?.label} pages`}>
-      <span className="tiny muted">{group?.label}</span>
+      <span className="eyebrow muted">{group?.label}</span>
       <ul>
         {siblings.map((p) => (
           <li key={p.slug}>

@@ -45,13 +45,13 @@ export function ModelsPage() {
                       View on Sketchfab ↗
                     </a>
                   ) : (
-                    <p className="tiny muted">Sketchfab link — coming soon</p>
+                    <p className="tiny muted">Sketchfab link coming soon</p>
                   )}
                 </div>
               </li>
             ) : (
               <li key={i} className="model">
-                <PendingCard kind={`Model ${String(i + 1).padStart(2, '0')}`} status="In development" note="Not yet chosen — will be one of the tracker assets." ratio="1/1" />
+                <PendingCard kind={`Model ${String(i + 1).padStart(2, '0')}`} status="In development" note="Not yet chosen; one of the tracker assets." ratio="1/1" />
               </li>
             ),
           )}

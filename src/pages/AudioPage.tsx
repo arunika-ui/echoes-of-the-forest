@@ -4,7 +4,7 @@ import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
-import { useLightbox } from '../components/Lightbox'
+import { useLightbox } from '../components/useLightbox'
 import { MediaFigure } from '../components/Media'
 import { Reveal } from '../components/Reveal'
 import { pageBySlug, sonic, sonicMoodboard } from '../data/projectData'
@@ -25,11 +25,7 @@ export function AudioPage() {
       <Block
         label="Sonic moodboard"
         title="Sourced reference sounds"
-        lede={
-          <p>
-            Nine clips collected for the sonic moodboard. They are <strong>sourced, unedited reference material</strong> — not the final edited assets.
-          </p>
-        }
+        lede={<p>Nine clips collected as reference. They are sourced and unedited, not the final assets.</p>}
         wide
       >
         <Reveal as="ul" className="audio-grid" stagger>
@@ -44,28 +40,19 @@ export function AudioPage() {
                   </>
                 }
               />
-              <p className="audio-grid__file tiny muted">
-                {c.file} · {c.duration}
-              </p>
             </li>
           ))}
         </Reveal>
       </Block>
 
-      <Block label="Editing process" title="From source to edited asset" wide>
-        <ul className="chips">
-          {sonic.edits.map((e) => (
-            <li key={e}>{e}</li>
-          ))}
-        </ul>
-        <Reveal as="ul" className="grid-3 shots mt" stagger>
+      <Block label="Editing process" title="From source to edited asset" lede={<p>Edited in Audacity using {sonic.editedWith}.</p>} wide>
+        <Reveal as="ul" className="grid-3 shots" stagger>
           {sonic.editingShots.map((shot, i) => (
             <li key={shot.key}>
               <MediaFigure media={shot} fit="contain" onOpen={() => lb.open(i)} sizes="(min-width: 900px) 30vw, 100vw" />
             </li>
           ))}
         </Reveal>
-        <p className="tiny muted mt">Click a screenshot to enlarge.</p>
         {lb.node}
       </Block>
 

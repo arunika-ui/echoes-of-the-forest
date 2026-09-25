@@ -52,7 +52,7 @@ export function HomePage() {
         </Reveal>
       </section>
 
-      <Block label="The journey" title="Follow the trail" lede={<p>The folio reads like the walk itself — from concept, through research and development, to the finished forest at night.</p>} wide>
+      <Block label="The journey" title="Follow the trail" lede={<p>The folio follows the walk itself, from concept, through research and development, to the finished forest at night.</p>} wide>
         <JourneyMap />
       </Block>
 

@@ -25,7 +25,7 @@ export function Hero({ media, mediaCaption, children }: { media: MediaItem; medi
   return (
     <section ref={ref} className="frame hx" aria-labelledby="hx-title">
       <div className="hx-text">
-        <p className="tiny hx-eyebrow">
+        <p className="eyebrow hx-eyebrow">
           {site.unit} · Academic eFolio · {site.year}
         </p>
         <h1 id="hx-title" className="hx-title" aria-label={site.title}>
@@ -47,7 +47,7 @@ export function Hero({ media, mediaCaption, children }: { media: MediaItem; medi
             <MediaFill media={media} eager sizes="(min-width: 900px) 45vw, 100vw" />
           </div>
         </div>
-        <figcaption className="hx-index tiny">{mediaCaption}</figcaption>
+        <figcaption className="hx-index eyebrow">{mediaCaption}</figcaption>
       </figure>
     </section>
   )

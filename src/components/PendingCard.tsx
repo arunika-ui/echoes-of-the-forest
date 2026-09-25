@@ -1,4 +1,4 @@
-/** Clearly styled placeholder for evidence that does not exist yet. Never fake content. */
+/** Quiet placeholder for evidence that hasn't been added yet. Never fake content. */
 export function PendingCard({
   kind,
   title,
@@ -13,10 +13,11 @@ export function PendingCard({
   ratio?: string
 }) {
   return (
-    <div className="pending" style={{ aspectRatio: ratio }} role="note" aria-label={`${kind}${title ? `: ${title}` : ''} — ${status}`}>
-      <span className="pending__status">{status}</span>
-      <span className="pending__kind tiny">{kind}</span>
+    <div className="pending" style={{ aspectRatio: ratio }} role="note" aria-label={`${title ?? kind}: ${status}`}>
       {title && <span className="pending__title">{title}</span>}
+      <span className="pending__meta">
+        {kind} · {status}
+      </span>
       {note && <span className="pending__note">{note}</span>}
     </div>
   )

@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react'
-import { hasMedia, type AudioItem, type MediaItem } from '../lib/media'
-import { AudioPlayer, hasAudio } from './AudioPlayer'
+import { hasAudio, hasMedia, type AudioItem, type MediaItem } from '../lib/media'
+import { AudioPlayer } from './AudioPlayer'
 import { MediaFigure } from './Media'
 import { ModelViewer } from './ModelViewer'
 import { PendingCard } from './PendingCard'
 
 /**
- * Reusable evidence card: an image / video / audio / model slot, caption,
- * date and a "Links to inquiry" line. Missing media → a pending card.
+ * Evidence card: an image, video, audio or model slot with a title, date and
+ * caption. Missing media renders a pending card.
  */
 export function EvidenceCard({
   kind,
@@ -17,7 +17,6 @@ export function EvidenceCard({
   model,
   caption,
   date,
-  inquiry,
   onOpen,
   status = 'Coming soon',
   children,
@@ -29,7 +28,6 @@ export function EvidenceCard({
   model?: { src: string; alt: string }
   caption?: ReactNode
   date?: string
-  inquiry?: string
   onOpen?: () => void
   status?: 'Coming soon' | 'In development' | 'Not started'
   children?: ReactNode
@@ -37,8 +35,9 @@ export function EvidenceCard({
   const label = { image: 'Image', video: 'Video', audio: 'Audio', model: '3D model' }[kind]
   let slot: ReactNode
   if (kind === 'model' && model) slot = <ModelViewer src={model.src} alt={model.alt} />
-  else if (kind === 'audio') slot = audio && hasAudio(audio) ? <AudioPlayer item={audio} /> : <PendingCard kind={label} title={title} status={status} ratio="auto" />
-  else slot = media && hasMedia(media) ? <MediaFigure media={media} onOpen={onOpen} /> : <PendingCard kind={label} title={title} status={status} ratio={media?.ratio} />
+  // The card title sits below the slot, so pending slots don't repeat it.
+  else if (kind === 'audio') slot = audio && hasAudio(audio) ? <AudioPlayer item={audio} /> : <PendingCard kind={label} status={status} ratio="auto" />
+  else slot = media && hasMedia(media) ? <MediaFigure media={media} onOpen={onOpen} /> : <PendingCard kind={label} status={status} ratio={media?.ratio} />
 
   return (
     <article className="evidence">
@@ -50,11 +49,6 @@ export function EvidenceCard({
         </div>
         {caption && <div className="evidence__caption">{caption}</div>}
         {children}
-        {inquiry && (
-          <p className="evidence__inquiry">
-            <span className="tiny">Links to inquiry:</span> {inquiry}
-          </p>
-        )}
       </div>
     </article>
   )

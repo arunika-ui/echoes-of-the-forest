@@ -4,7 +4,7 @@ import { site } from '../data/projectData'
 export function Footer() {
   return (
     <footer className="footer">
-      <div className="frame footer__inner tiny">
+      <div className="frame footer__inner eyebrow">
         <span>
           {site.title} <span className="muted">— {site.artist} · {site.unit} · {site.year}</span>
         </span>

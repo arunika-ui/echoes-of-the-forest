@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 import type { SourceClip } from '../data/projectData'
-import { resolveMedia } from '../lib/media'
+import { AUDIO_EVENT, resolveMedia } from '../lib/media'
+
+const MIXER = 'mixer'
 
 /**
  * Day → night crossfade prototype using the sourced (unedited) moodboard clips.
@@ -21,15 +23,18 @@ export function SoundMixer({ day, night }: { day: SourceClip[]; night: SourceCli
     })
   })
 
+  // Stop when any other player starts; always stop on unmount.
   useEffect(() => {
-    const stop = () => {
-      refs.current.forEach((el) => el?.pause())
+    const els = refs.current
+    const stop = (e: Event) => {
+      if ((e as CustomEvent).detail === MIXER) return
+      els.forEach((el) => el?.pause())
       setPlaying(false)
     }
-    window.addEventListener('efolio:audio', stop)
+    window.addEventListener(AUDIO_EVENT, stop)
     return () => {
-      window.removeEventListener('efolio:audio', stop)
-      refs.current.forEach((el) => el?.pause())
+      window.removeEventListener(AUDIO_EVENT, stop)
+      els.forEach((el) => el?.pause())
     }
   }, [])
 
@@ -38,9 +43,14 @@ export function SoundMixer({ day, night }: { day: SourceClip[]; night: SourceCli
       refs.current.forEach((el) => el?.pause())
       setPlaying(false)
     } else {
-      window.dispatchEvent(new CustomEvent('efolio:audio', { detail: null }))
-      refs.current.forEach((el) => void el?.play())
+      window.dispatchEvent(new CustomEvent(AUDIO_EVENT, { detail: MIXER }))
+      const plays = refs.current.map((el) => el?.play())
       setPlaying(true)
+      // Autoplay can still be refused (e.g. a missing file); reflect that in the UI.
+      Promise.all(plays).catch(() => {
+        refs.current.forEach((el) => el?.pause())
+        setPlaying(false)
+      })
     }
   }
 
@@ -70,7 +80,9 @@ export function SoundMixer({ day, night }: { day: SourceClip[]; night: SourceCli
               <span className="mixer__bar" aria-hidden="true">
                 <i style={{ width: `${v}%` }} />
               </span>
-              <audio ref={(el) => void (refs.current[i] = el)} src={resolveMedia(c.audio.key)} loop preload="none" />
+              <audio ref={(el) => {
+                  refs.current[i] = el
+                }} src={resolveMedia(c.audio.key)} loop preload="none" />
             </div>
           )
         })}

@@ -56,7 +56,7 @@ export function ConceptPage() {
                   <dd>{s.sound}</dd>
                 </div>
               </dl>
-              <AudioPlayer item={s.clip} credit="Sourced moodboard clip — unedited" />
+              <AudioPlayer item={s.clip} credit="Sourced reference, unedited" />
             </li>
           ))}
         </Reveal>

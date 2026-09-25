@@ -53,7 +53,7 @@ export function LearningPage() {
       <Block label="Evidence" title="Tutorial exercises" wide>
         <div className="grid-2">
           {learning.evidence.map((e) => (
-            <EvidenceCard key={e.title} kind="image" title={e.title} media={e.media} inquiry="Builds the modelling skills needed for original low-poly assets." />
+            <EvidenceCard key={e.title} kind="image" title={e.title} media={e.media} />
           ))}
         </div>
       </Block>

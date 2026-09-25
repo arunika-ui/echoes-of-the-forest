@@ -67,3 +67,8 @@ export interface AudioItem {
   /** e.g. 'Raw', 'Edited', 'Final', 'Voice memo' */
   stage?: string
 }
+
+/** Window event fired when a player starts, so only one clip plays at a time. */
+export const AUDIO_EVENT = 'efolio:audio'
+
+export const hasAudio = (item?: AudioItem) => !!item && !!resolveMedia(item.key)

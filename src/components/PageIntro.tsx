@@ -20,7 +20,7 @@ export function PageIntro({ page, children }: { page: PageDef; children?: ReactN
     <>
       <header ref={ref} className="ph frame">
         <div className="ed">
-          <p className="ed__side tiny" data-head>
+          <p className="ed__side eyebrow" data-head>
             {page.n} / {page.nav}
           </p>
           <div className="ed__main">

@@ -27,19 +27,19 @@ export function MobileMenu({ open, onClose }: { open: boolean; onClose: () => vo
       <nav className="frame menu__grid" aria-label="All pages">
         <div className="menu__group">
           <NavLink to="/" end onClick={onClose} className="menu__link">
-            <span className="tiny muted">00</span> Home
+            <span className="eyebrow muted">00</span> Home
           </NavLink>
         </div>
         {groups.map((g) => (
           <div key={g.id} className="menu__group">
-            <p className="tiny muted menu__label">{g.label}</p>
+            <p className="eyebrow muted menu__label">{g.label}</p>
             <ul>
               {pages
                 .filter((p) => p.group === g.id)
                 .map((p) => (
                   <li key={p.slug}>
                     <NavLink to={p.path} onClick={onClose} className="menu__link">
-                      <span className="tiny muted">{p.n}</span> {p.nav}
+                      <span className="eyebrow muted">{p.n}</span> {p.nav}
                     </NavLink>
                   </li>
                 ))}

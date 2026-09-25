@@ -50,7 +50,7 @@ export function ReferencesPage() {
                       )}
                       {r.accessed && ` (Accessed: ${r.accessed})`}
                       {r.url && !r.accessed && ' (Accessed: to verify)'}.
-                      {r.toVerify && <span className="verify tiny"> To verify — {r.toVerify}</span>}
+                      {r.toVerify && <span className="verify tiny"> To verify: {r.toVerify}</span>}
                     </span>
                   </li>
                 ))}

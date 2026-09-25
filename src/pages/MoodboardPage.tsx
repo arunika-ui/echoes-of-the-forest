@@ -1,6 +1,6 @@
 import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
-import { useLightbox } from '../components/Lightbox'
+import { useLightbox } from '../components/useLightbox'
 import { MediaFigure } from '../components/Media'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
@@ -11,7 +11,7 @@ import { usePageTitle } from './usePageTitle'
 export function MoodboardPage() {
   const page = pageBySlug('moodboard')
   usePageTitle(page.nav)
-  const lb = useLightbox([{ ...moodboard.image, caption: 'Echoes of the Forest — visual moodboard' }])
+  const lb = useLightbox([{ ...moodboard.image, caption: 'Echoes of the Forest visual moodboard' }])
   return (
     <>
       <PageIntro page={page} />

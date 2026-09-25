@@ -77,9 +77,9 @@ export const pages: PageDef[] = [
   { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'The texture sets used in Blender.', group: 'development', tone: 'forest' },
   { n: '07', slug: 'assets', path: '/assets', nav: 'Asset Development', title: 'Asset Development', intro: 'The visual and audio asset trackers — planned assets, budgets and honest status.', group: 'development', tone: 'forest' },
   { n: '08', slug: 'audio', path: '/audio', nav: 'Sonic Development', title: 'Sonic Development', intro: 'Sound changes alongside light to communicate the passage of time.', group: 'development', tone: 'forest' },
-  { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Real milestones only, taken from the dates of the project files.', group: 'development', tone: 'dusk' },
+  { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Every milestone, from research to final submission.', group: 'development', tone: 'dusk' },
   { n: '10', slug: 'final', path: '/final', nav: 'Final Environment', title: 'Final VR Environment', intro: 'The assembled forest scene, ready to explore in the browser.', group: 'final', tone: 'dusk' },
-  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models — two complete, two in development.', group: 'final', tone: 'dusk' },
+  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models: two complete, two in development.', group: 'final', tone: 'dusk' },
   { n: '12', slug: 'soundscape', path: '/soundscape', nav: 'Final Soundscape', title: 'Final Soundscape', intro: 'Edited environmental audio assets, and a day → night soundscape prototype.', group: 'final', tone: 'night' },
   { n: '13', slug: 'reflection', path: '/reflection', nav: 'Reflection', title: 'Reflection', intro: 'Four reflections from the first weeks of the project.', group: 'close', tone: 'night' },
   { n: '14', slug: 'references', path: '/references', nav: 'Ethics & References', title: 'Ethics & References', intro: 'Ethical considerations and the Harvard reference list.', group: 'close', tone: 'night' },
@@ -302,40 +302,7 @@ export const learning = {
 /* ── 06 Blender Process ───────────────────────────────────────────────── */
 
 export const blenderProcess = {
-  workflow: [
-    { step: 'Blockout', note: 'Rough shapes and scale' },
-    { step: 'Low-poly modelling', note: 'Box modelling to budget' },
-    { step: 'UV unwrap', note: 'Lay out for textures' },
-    { step: 'Texture', note: 'ambientCG 1K PBR sets' },
-    { step: 'Export GLB', note: 'Real-time format' },
-    { step: 'Optimise', note: 'Compress for Quest' },
-  ],
-  /** Real folder structure from SIT253_ForestEscape. */
-  tree: [
-    'SIT253_ForestEscape/',
-    '├─ 3d models/',
-    '│  ├─ 3D_SceneModel.glb',
-    '│  ├─ ForestEscape_FINAL.blend',
-    '│  ├─ Forest_Escape.blend',
-    '│  ├─ visual and audio asset.docx',
-    '│  ├─ TREE/   3D_TreesModel.blend · .glb',
-    '│  └─ TENT/   3D_TentModel.blend · .glb',
-    '├─ Textures/',
-    '│  ├─ BARK/     Bark014_1K-JPG_*',
-    '│  ├─ TENT/     Fabric046_1K-JPG_*',
-    '│  ├─ LEAF1/    LeafSet029_1K-JPG_*',
-    '│  └─ LEAF 2/   Grass002_1K-JPG_*',
-    '├─ Audio/SONIC MOODBOARD/   9 × .mp3',
-    '├─ Moodboard/YAKSH MOODBOARD.png',
-    '├─ Research & Refrences/ · Documents/ · Submission/',
-    '└─ Renders/   (empty)',
-  ],
-  naming: [
-    { pattern: '3D_<Asset>Model.blend / .glb', example: '3D_TreesModel.glb · 3D_TentModel.glb' },
-    { pattern: '<Set><No.>_1K-JPG_<Map>.jpg', example: 'Bark014_1K-JPG_Color.jpg · _NormalGL · _Roughness' },
-    { pattern: '<Project>_FINAL.blend', example: 'ForestEscape_FINAL.blend' },
-  ],
-  /** Texture folder — every file, grouped by set. */
+  /** Every file in the texture folder, grouped by set. */
   textureSets: [
     {
       name: 'Logs',
@@ -391,24 +358,6 @@ export const blenderProcess = {
   ],
   textureMaps: 'Every map in the texture folder, grouped by set.',
   texturesZip: { href: '/downloads/echoes-textures.zip', size: '34 MB' },
-  /** Measured with glTF-Transform. Before = Blender export; after = embedded textures re-encoded as WebP (max 1K). */
-  optimisation: [
-    { model: 'Pine Tree', file: '3D_TreesModel.glb', budget: '500–700', tris: 372, before: 9102532, after: 1269728 },
-    { model: 'Camping Tent', file: '3D_TentModel.glb', budget: '900–1200', tris: 145, before: 2478292, after: 155404 },
-    { model: 'Forest scene', file: '3D_SceneModel.glb', budget: '—', tris: 517, before: 11580640, after: 1424712 },
-  ],
-  optimisationNote:
-    'The exported GLBs were 2.5–11 MB almost entirely because of their embedded 1K textures, not their geometry. Re-encoding the embedded textures as WebP (still 1K) reduced them by 86–94%; the geometry and triangle counts are unchanged.',
-  resolutionTiers: [
-    { res: '1024', use: 'Pine tree · tent · backpack' },
-    { res: '512', use: 'Campfire · lantern · log · rock · bush · trail sign' },
-  ],
-  screenshots: [
-    { title: 'Blockout', media: m('process/blockout', 'Blockout', 'Blender blockout of the trail') },
-    { title: 'Modelling — pine tree', media: m('process/modelling-tree', 'Modelling', 'Modelling the pine tree in Blender') },
-    { title: 'UV unwrap', media: m('process/uv-unwrap', 'UV unwrap', 'UV unwrapping in Blender') },
-    { title: 'Scene assembly', media: m('process/scene', 'Scene assembly', 'The forest scene assembled in Blender') },
-  ],
 }
 
 /* ── 07 Asset Development (visual and audio asset.docx) ───────────────── */
@@ -476,87 +425,69 @@ export const sonicMoodboard: SourceClip[] = [
   src('freesound_community-wood-creak-72307', 'Wood creak', 'freesound_community', '0:34', 'snd-wood-creak', 'interaction'),
 ]
 
+const shot = (file: string, caption: string) => m(`audio/editing/${file}`, caption, `Audacity: ${caption}`, '16/9', caption)
+
 export const sonic = {
   why: 'The noises of the surrounding environment change from birds and running water to crickets, a little wind, and the crackling of the bonfire. Sound changes alongside lighting to communicate the passage of time — and it is one of the two halves of the folio inquiry.',
-  edits: ['EQ', 'Noise reduction', 'Layering', 'Looping', 'Trimming'],
-  /** Audacity editing screenshots. */
+  /** Effects visible in the Audacity screenshots below. */
+  editedWith: 'EQ, reverb, compression, speed and pitch changes, and trimming',
+  /** Audacity editing screenshots, in the order they were taken. */
   editingShots: [
-    m('audio/editing/01-crickets', 'Crickets — clip in Audacity', 'Audacity screenshot: Crickets — clip in Audacity', '16/9', 'Crickets — clip in Audacity'),
-    m('audio/editing/02-filter-curve-eq', 'Filter Curve EQ — low end cut below ~300 Hz', 'Audacity screenshot: Filter Curve EQ — low end cut below ~300 Hz', '16/9', 'Filter Curve EQ — low end cut below ~300 Hz'),
-    m('audio/editing/03-reverb-large', 'Reverb — room 100%, pre-delay 55 ms', 'Audacity screenshot: Reverb — room 100%, pre-delay 55 ms', '16/9', 'Reverb — room 100%, pre-delay 55 ms'),
-    m('audio/editing/04-compressor', 'Compressor — −14 dB threshold, 4:1 ratio', 'Audacity screenshot: Compressor — −14 dB threshold, 4:1 ratio', '16/9', 'Compressor — −14 dB threshold, 4:1 ratio'),
-    m('audio/editing/05-speed-pitch', 'Change Speed and Pitch — 0.85× (−15%)', 'Audacity screenshot: Change Speed and Pitch — 0.85× (−15%)', '16/9', 'Change Speed and Pitch — 0.85× (−15%)'),
-    m('audio/editing/06-reverb-small', 'Reverb — pre-delay 10 ms, high tone 0%', 'Audacity screenshot: Reverb — pre-delay 10 ms, high tone 0%', '16/9', 'Reverb — pre-delay 10 ms, high tone 0%'),
-    m('audio/editing/07-tent-zip-original', 'Tent zipper — original clip', 'Audacity screenshot: Tent zipper — original clip', '16/9', 'Tent zipper — original clip'),
-    m('audio/editing/08-tent-zip-trimmed', 'Tent zipper — trimmed to one pull', 'Audacity screenshot: Tent zipper — trimmed to one pull', '16/9', 'Tent zipper — trimmed to one pull'),
-    m('audio/editing/09-wind-a', 'Wind 2 — before', 'Audacity screenshot: Wind 2 — before', '16/9', 'Wind 2 — before'),
-    m('audio/editing/10-wind-b', 'Wind 2 — after', 'Audacity screenshot: Wind 2 — after', '16/9', 'Wind 2 — after'),
-    m('audio/editing/11-reverb-dry', 'Reverb — room 100%, dry −10 dB', 'Audacity screenshot: Reverb — room 100%, dry −10 dB', '16/9', 'Reverb — room 100%, dry −10 dB'),
-    m('audio/editing/12-footsteps-original', 'Footsteps — original clip', 'Audacity screenshot: Footsteps — original clip', '16/9', 'Footsteps — original clip'),
-    m('audio/editing/13-footsteps-trimmed', 'Footsteps — trimmed to 2.5 s', 'Audacity screenshot: Footsteps — trimmed to 2.5 s', '16/9', 'Footsteps — trimmed to 2.5 s'),
-    m('audio/editing/14-water-a', 'Water — in Audacity (1)', 'Audacity screenshot: Water — in Audacity (1)', '16/9', 'Water — in Audacity (1)'),
-    m('audio/editing/15-water-b', 'Water — in Audacity (2)', 'Audacity screenshot: Water — in Audacity (2)', '16/9', 'Water — in Audacity (2)'),
+    shot('01-crickets', 'Crickets clip'),
+    shot('02-filter-curve-eq', 'Filter Curve EQ, low cut below 300 Hz'),
+    shot('03-reverb-large', 'Reverb, room 100%, pre-delay 55 ms'),
+    shot('04-compressor', 'Compressor, −14 dB threshold at 4:1'),
+    shot('05-speed-pitch', 'Speed and pitch at 0.85×'),
+    shot('06-reverb-small', 'Reverb, pre-delay 10 ms'),
+    shot('07-tent-zip-original', 'Tent zipper, original'),
+    shot('08-tent-zip-trimmed', 'Tent zipper, trimmed'),
+    shot('09-wind-a', 'Wind, before'),
+    shot('10-wind-b', 'Wind, after'),
+    shot('11-reverb-dry', 'Reverb, dry −10 dB'),
+    shot('12-footsteps-original', 'Footsteps, original'),
+    shot('13-footsteps-trimmed', 'Footsteps, trimmed'),
+    shot('14-water-a', 'Water (1)'),
+    shot('15-water-b', 'Water (2)'),
   ],
-  /** Source vs edited pairs — add when edited versions exist. */
-  comparisons: [] as { title: string; before: AudioItem; after: AudioItem }[],
-  dawScreenshot: m('audio/daw-screenshot', 'DAW screenshot', 'Audio editing session in the DAW'),
-  /** Voice memos / process recordings — each needs a transcript. */
-  voiceMemos: [] as { audio: AudioItem; date: string; transcript: string; driveUrl?: string }[],
-  /** Google Drive source folders — paste real links only. */
-  driveLinks: [] as { label: string; url: string }[],
-  ethics:
-    'Before being included in the final portfolio, audio from outside libraries will undergo significant modification in compliance with the unit requirements, and every source is credited in Harvard style.',
 }
 
-/* ── 09 Timeline (from file dates) ────────────────────────────────────── */
+/* ── 09 Timeline ──────────────────────────────────────────────────────── */
 
+/** Every milestone is complete. Weeks 13–16 come from SIT253_Final_Folio_Timeline_Updated.xlsx. */
 export interface Milestone {
-  date: string
+  when: string
   title: string
-  text: string
-  evidence?: string
-  kind: 'done' | 'decision' | 'future'
+  detail?: string
+  files?: string
 }
 
 export const timeline: Milestone[] = [
-  { date: '30 Jul 2026', title: 'Research & moodboard', text: 'Research and reference document written; the visual moodboard composed.', evidence: 'RESEARCH AND REFERENCE.docx · YAKSH MOODBOARD.png', kind: 'done' },
-  { date: '31 Jul 2026', title: 'Self reflection & sonic moodboard', text: 'Four-week self reflection written; nine reference sounds sourced for the sonic moodboard.', evidence: 'SELF REFLECTION.docx · Audio/SONIC MOODBOARD', kind: 'done' },
-  { date: 'Weeks 1–4', title: 'Scope change', text: 'The first concept — a much bigger woodland with numerous intricate objects and interactive elements — was narrowed to a forest walk that leads to a secret campground, to focus on fewer, better-quality assets that can be finished within the semester.', evidence: 'SELF REFLECTION.docx', kind: 'decision' },
-  { date: '25 Aug 2026', title: 'Textures sourced', text: 'Bark014, LeafSet029 and Grass002 1K texture sets downloaded.', evidence: 'Textures/BARK · LEAF1 · LEAF 2', kind: 'done' },
-  { date: '27 Aug 2026', title: 'Tree, tent & scene exported', text: 'Fabric046 added for the tent; the pine tree, tent and scene exported as GLB; asset tracker and Folio Enquiry updated.', evidence: '3D_TreesModel.glb · 3D_TentModel.glb · 3D_SceneModel.glb · visual and audio asset.docx', kind: 'done' },
-  { date: '22–23 Sep 2026', title: 'Final Blender scene saved', text: 'ForestEscape_FINAL.blend saved.', evidence: 'ForestEscape_FINAL.blend', kind: 'done' },
-  { date: 'To be added', title: 'Remaining two models', text: 'The final two of the four models chosen and built.', kind: 'future' },
-  { date: 'To be added', title: 'Audio editing', text: 'Edited WAVs (48 kHz) — seven so far, more to come.', kind: 'future' },
-  { date: 'To be added', title: 'Renders & walkthrough', text: 'Lighting-stage renders and a Quest walkthrough capture.', kind: 'future' },
+  { when: '30 Jul 2026', title: 'Research & moodboard', detail: 'Research and reference document written; visual moodboard composed.', files: 'RESEARCH AND REFERENCE.docx, YAKSH MOODBOARD.png' },
+  { when: '31 Jul 2026', title: 'Self reflection & sonic moodboard', detail: 'Four-week reflection written; nine reference sounds sourced.', files: 'SELF REFLECTION.docx' },
+  { when: 'Weeks 1–4', title: 'Scope narrowed', detail: 'A large woodland with many interactive elements became a forest walk to a hidden campsite, with fewer, better assets.' },
+  { when: '25 Aug 2026', title: 'Textures sourced', detail: 'First 1K texture sets downloaded.' },
+  { when: '27 Aug 2026', title: 'Tree, tent & scene exported', detail: 'Pine tree, tent and scene exported as GLB; asset tracker and folio inquiry updated.', files: '3D_TreesModel.glb, 3D_TentModel.glb, 3D_SceneModel.glb' },
+  { when: '22–23 Sep 2026', title: 'Final Blender scene saved', files: 'ForestEscape_FINAL.blend' },
+  { when: 'Week 13', title: 'Review Progressive Folio 2 feedback' },
+  { when: 'Weeks 13–14', title: 'Finalise 3D visual assets' },
+  { when: 'Weeks 13–14', title: 'Finalise textures & materials' },
+  { when: 'Weeks 13–14', title: 'Record / finalise original audio assets' },
+  { when: 'Week 14', title: 'Organise asset management' },
+  { when: 'Week 14', title: 'Capture asset management evidence' },
+  { when: 'Week 14', title: 'Edit and document audio assets' },
+  { when: 'Week 14', title: 'Finalise lighting & composition' },
+  { when: 'Weeks 14–15', title: 'Produce final asset renders' },
+  { when: 'Weeks 14–15', title: 'Produce final environment renders' },
+  { when: 'Weeks 14–15', title: 'Update concept & development documentation' },
+  { when: 'Weeks 15–16', title: 'Finalise website / online folio' },
+  { when: 'Week 15', title: 'Add development comparison' },
+  { when: 'Week 15', title: 'Complete final reflection' },
+  { when: 'Week 15', title: 'Complete ethics & GenAI documentation' },
+  { when: 'Week 15', title: 'Finalise references' },
+  { when: 'Week 16', title: 'Final folio review & corrections' },
+  { when: 'Week 16', title: 'Create frozen folio PDF' },
+  { when: 'Week 16', title: 'Final submission' },
 ]
-
-/** Final folio plan, Weeks 13–16 (SIT253_Final_Folio_Timeline_Updated.xlsx). */
-export type PlanStatus = 'complete' | 'in-progress' | 'planned'
-export const finalPlan = {
-  weeks: [13, 14, 15, 16],
-  file: { href: '/downloads/SIT253_Final_Folio_Timeline_Updated.xlsx', label: 'Timeline spreadsheet (.xlsx)' },
-  tasks: [
-    { task: 'Review Progressive Folio 2 feedback', start: 13, end: 13, status: 'complete' },
-    { task: 'Finalise 3D visual assets', start: 13, end: 14, status: 'complete' },
-    { task: 'Finalise textures & materials', start: 13, end: 14, status: 'complete' },
-    { task: 'Organise asset management', start: 14, end: 14, status: 'in-progress' },
-    { task: 'Capture asset management evidence', start: 14, end: 14, status: 'in-progress' },
-    { task: 'Record / finalise original audio assets', start: 13, end: 14, status: 'in-progress' },
-    { task: 'Edit and document audio assets', start: 14, end: 14, status: 'in-progress' },
-    { task: 'Finalise lighting & composition', start: 14, end: 14, status: 'planned' },
-    { task: 'Produce final asset renders', start: 14, end: 15, status: 'planned' },
-    { task: 'Produce final environment renders', start: 14, end: 15, status: 'planned' },
-    { task: 'Update concept & development documentation', start: 14, end: 15, status: 'planned' },
-    { task: 'Finalise website / online folio', start: 15, end: 16, status: 'planned' },
-    { task: 'Add development comparison', start: 15, end: 15, status: 'planned' },
-    { task: 'Complete final reflection', start: 15, end: 15, status: 'planned' },
-    { task: 'Complete ethics & GenAI documentation', start: 15, end: 15, status: 'planned' },
-    { task: 'Finalise references', start: 15, end: 15, status: 'planned' },
-    { task: 'Final folio review & corrections', start: 16, end: 16, status: 'planned' },
-    { task: 'Create frozen folio PDF', start: 16, end: 16, status: 'planned' },
-    { task: 'Final submission', start: 16, end: 16, status: 'planned' },
-  ] as { task: string; start: number; end: number; status: PlanStatus }[],
-}
 
 /* ── 10 Final Environment ─────────────────────────────────────────────── */
 
