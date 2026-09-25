@@ -4,6 +4,7 @@ import { PageNext } from '../components/PageNext'
 import { Reveal } from '../components/Reveal'
 import { finalModels, pageBySlug } from '../data/projectData'
 import { mb } from '../lib/format'
+import { resolveMedia } from '../lib/media'
 import { usePageTitle } from './usePageTitle'
 
 export function ModelsPage() {
@@ -15,6 +16,7 @@ export function ModelsPage() {
       <section className="frame block" aria-label="Four final models">
         <Reveal as="ul" className="models" stagger>
           {finalModels.map((mdl, i) => {
+            const glb = mdl.src && resolveMedia(mdl.src)
             const stats = [
               { label: 'Poly budget', value: mdl.polyBudget },
               { label: 'Triangles', value: mdl.tris },
@@ -23,8 +25,8 @@ export function ModelsPage() {
             ].filter((s) => s.value)
             return (
               <li key={i} className="model">
-                {mdl.src ? (
-                  <ModelViewer src={mdl.src} alt={mdl.alt!} ratio="1/1" />
+                {glb ? (
+                  <ModelViewer src={mdl.src!} alt={mdl.alt!} ratio="1/1" />
                 ) : (
                   <a className="pending model__sketchfab" style={{ aspectRatio: '1/1' }} href={mdl.sketchfabUrl} target="_blank" rel="noopener noreferrer">
                     <span className="pending__title">{mdl.name}</span>
@@ -42,7 +44,7 @@ export function ModelsPage() {
                       </div>
                     ))}
                   </dl>
-                  {mdl.sketchfabUrl && (
+                  {!glb && mdl.sketchfabUrl && (
                     <a className="text-link" href={mdl.sketchfabUrl} target="_blank" rel="noopener noreferrer">
                       View on Sketchfab ↗
                     </a>
