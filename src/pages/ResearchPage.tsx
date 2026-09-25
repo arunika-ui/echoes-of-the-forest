@@ -51,9 +51,9 @@ export function ResearchPage() {
         </Reveal>
       </Block>
 
-      <Block label="Low-poly art style" title="Why low-poly" wide>
+      <Block label="Art style" title="Why a stylised look" wide>
         <Reveal as="dl" className="qa" stagger>
-          {research.lowPoly.map((q) => (
+          {research.artStyle.map((q) => (
             <div key={q.q}>
               <dt>{q.q}</dt>
               <dd>{q.a}</dd>

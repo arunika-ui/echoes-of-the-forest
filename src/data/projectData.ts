@@ -29,15 +29,15 @@ export const a = (key: string, title: string, extra: Partial<AudioItem> = {}): A
 
 export const site = {
   title: 'Echoes of the Forest',
-  subtitle: 'A Low-Poly VR Camping and Exploration Experience',
+  subtitle: 'A Stylised VR Camping and Exploration Experience',
   artist: 'Yaksh Khanna',
   unit: 'SIT253',
   year: '2026',
   theme: 'Experience & Exploration',
   summary:
-    'Echoes of the Forest investigates how original low-poly 3D assets, environmental audio and changing atmosphere can work together to create a calm, immersive forest exploration experience for standalone VR.',
+    'Echoes of the Forest investigates how original 3D assets, environmental audio and changing atmosphere can work together to create a calm, immersive forest exploration experience for standalone VR.',
   inquiry:
-    'How can original low-poly 3D models and environmental audio be designed to create a relaxing and immersive forest exploration experience suitable for standalone virtual reality?',
+    'How can original 3D models and environmental audio be designed to create a relaxing and immersive forest exploration experience suitable for standalone virtual reality?',
   /** Public Sketchfab profile — add when available. */
   sketchfabProfile: '',
 }
@@ -71,7 +71,7 @@ export const pages: PageDef[] = [
   { n: '00', slug: 'home', path: '/', nav: 'Home', title: 'Echoes of the Forest', intro: site.summary, group: 'start', tone: 'afternoon' },
   { n: '01', slug: 'concept', path: '/concept', nav: 'Concept', title: 'The Concept', intro: 'A woodland trail at late afternoon, a secluded campsite, and a story told only by the environment.', group: 'project', tone: 'afternoon' },
   { n: '02', slug: 'inquiry', path: '/inquiry', nav: 'Folio Inquiry', title: 'Folio Inquiry', intro: 'The question that directs the project’s planning, research, asset development and assessment.', group: 'project', tone: 'afternoon' },
-  { n: '03', slug: 'research', path: '/research', nav: 'Research', title: 'Research', intro: 'XR platform research, the low-poly style, colour, lighting and environmental design.', group: 'research', tone: 'golden' },
+  { n: '03', slug: 'research', path: '/research', nav: 'Research', title: 'Research', intro: 'XR platform research, the stylised art style, colour, lighting and environmental design.', group: 'research', tone: 'golden' },
   { n: '04', slug: 'moodboard', path: '/moodboard', nav: 'Moodboard', title: 'Visual Moodboard', intro: 'One composed moodboard that fixes the visual identity of the forest and campsite.', group: 'research', tone: 'golden' },
   { n: '05', slug: 'learning', path: '/learning', nav: 'Technical Learning', title: 'Technical Learning', intro: 'Identified skill gaps, a learning plan, and the resources used to close them.', group: 'research', tone: 'golden' },
   { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'The texture sets used in Blender.', group: 'development', tone: 'forest' },
@@ -79,7 +79,7 @@ export const pages: PageDef[] = [
   { n: '08', slug: 'audio', path: '/audio', nav: 'Sonic Development', title: 'Sonic Development', intro: 'Sound changes alongside light to communicate the passage of time.', group: 'development', tone: 'forest' },
   { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Every milestone, from research to final submission.', group: 'development', tone: 'dusk' },
   { n: '10', slug: 'final', path: '/final', nav: 'Final Environment', title: 'Final VR Environment', intro: 'The assembled forest scene: explore it in 3D, then walk it by day and by night.', group: 'final', tone: 'dusk' },
-  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original low-poly models. Drag to orbit, scroll to zoom.', group: 'final', tone: 'dusk' },
+  { n: '11', slug: 'models', path: '/models', nav: 'Final Models', title: 'Final Models', intro: 'Four original 3D models. Drag to orbit, scroll to zoom.', group: 'final', tone: 'dusk' },
   { n: '12', slug: 'soundscape', path: '/soundscape', nav: 'Final Soundscape', title: 'Final Soundscape', intro: 'Edited environmental audio assets, and a day → night soundscape prototype.', group: 'final', tone: 'night' },
   { n: '13', slug: 'reflection', path: '/reflection', nav: 'Reflection', title: 'Reflection', intro: 'A final reflection on Progressive Folio 2 and the final submission, and the four reflections from the first weeks.', group: 'close', tone: 'night' },
   { n: '14', slug: 'references', path: '/references', nav: 'Ethics & References', title: 'Ethics & References', intro: 'Ethical considerations and the Harvard reference list.', group: 'close', tone: 'night' },
@@ -150,10 +150,10 @@ export const refNumber = (id: string) => references.findIndex((r) => r.id === id
 
 export const home = {
   credit: `${site.artist} · ${site.unit} · ${site.year}`,
-  heroImage: m('moodboard/moodboard', 'Visual moodboard', 'The Echoes of the Forest visual moodboard: pine forests, warm campsite light and low-poly references', '4/5'),
+  heroImage: m('moodboard/moodboard', 'Visual moodboard', 'The Echoes of the Forest visual moodboard: pine forests, warm campsite light and stylised references', '4/5'),
   quickFacts: [
     { label: 'Platform', value: 'Meta Quest' },
-    { label: 'Style', value: 'Low-poly' },
+    { label: 'Style', value: 'Stylised' },
     { label: 'Output', value: '4 models + 10 audio assets' },
     { label: 'Tools', value: 'Blender' },
   ],
@@ -165,7 +165,7 @@ export const home = {
 
 export const concept = {
   overview:
-    'The low-poly virtual reality game Echoes of the Forest is centered on tranquil exploration and environmental narrative. In the late afternoon, the user starts at a woodland trail’s entrance and proceeds deeper into the forest along a natural path. Before arriving at a secret campsite, the user travels by natural markers like trees, rocks, fallen logs, wooden path signs, and a small bridge.',
+    'The stylised virtual reality game Echoes of the Forest is centered on tranquil exploration and environmental narrative. In the late afternoon, the user starts at a woodland trail’s entrance and proceeds deeper into the forest along a natural path. Before arriving at a secret campsite, the user travels by natural markers like trees, rocks, fallen logs, wooden path signs, and a small bridge.',
   landmarks: ['Trees', 'Rocks', 'Fallen logs', 'Wooden path signs', 'A small bridge'],
   campsite: ['Camping tent', 'Backpack', 'Campfire', 'Lamp'],
   storytelling:
@@ -179,7 +179,7 @@ export const concept = {
   ],
   themeJustification: [
     'The topic of Experience and Exploration was chosen because it supports the project’s goal of establishing a tranquil setting that promotes inquiry and learning. Instead than creating a competitive or action-oriented experience, this initiative lets players explore a natural environment at their own speed. Because minute elements in the terrain can convey information without disrupting the user’s immersion, the forest offers a perfect setting for environmental storytelling.',
-    'The low-poly visual style was selected because it is appropriate for virtual reality applications, practical for a novice developer, and enhances the tranquil ambiance. The streamlined geometric shapes preserve a clear and appealing artistic approach while eliminating superfluous visual complexity. By creating optimized assets suitable for standalone VR devices, this method also facilitates real-time rendering.',
+    'The stylised visual style was selected because it is appropriate for virtual reality applications, practical for a novice developer, and enhances the tranquil ambiance. The streamlined geometric shapes preserve a clear and appealing artistic approach while eliminating superfluous visual complexity. By creating optimized assets suitable for standalone VR devices, this method also facilitates real-time rendering.',
   ],
   audience: [
     'Teenagers and adults who appreciate the outdoors, camping, and leisurely exploration are the main target demographic for Echoes of the Forest. Users that prefer serene settings and environmental storytelling over fast-paced gameplay are the target audience for this project. It is appropriate for both seasoned VR users and novices who want to experience virtual reality in a pleasant and approachable manner because it emphasizes observation and exploration.',
@@ -194,24 +194,24 @@ export const inquiry = {
   note: 'This inquiry serves as the foundation for the folio and directs all of the project’s planning, research, asset development, and assessment. Each and every audio and visual resource produced throughout development will help address this question.',
   intro: [
     'Virtual reality has transformed because virtual reality offers immersive experiences that promote exploration and engagement, it has completely changed how people interact with digital worlds. Immersion settings let players explore a virtual world at their own speed, in contrast to traditional games that primarily focus on objectives, battle, or competitiveness. This study investigates how a serene and captivating virtual reality experience might be produced by combining thoughtfully created visual materials with ambient audio.',
-    'The idea is to create a stylized low-poly woodland setting where users can stroll along a peaceful trail that eventually leads to a remote camping. Without spoken words or written narration, the story is conveyed throughout the encounter by the surroundings. Rather, environmental elements like camping gear, the surrounding landscape, ambient lighting, and authentic environmental sounds are used to create the mood. The project intends to show how an immersive virtual reality experience may be created with straightforward visual design and well-planned audio while still being technically feasible for real-time rendering.',
+    'The idea is to create a stylized woodland setting where users can stroll along a peaceful trail that eventually leads to a remote camping. Without spoken words or written narration, the story is conveyed throughout the encounter by the surroundings. Rather, environmental elements like camping gear, the surrounding landscape, ambient lighting, and authentic environmental sounds are used to create the mood. The project intends to show how an immersive virtual reality experience may be created with straightforward visual design and well-planned audio while still being technically feasible for real-time rendering.',
   ],
   platform:
-    'The Meta Quest standalone virtual reality headset is the project’s target platform. In order to maintain seamless performance and offer an immersive user experience, standalone VR systems need assets that have been meticulously tuned. Therefore, this project will concentrate on developing effective low-poly models, suitably sized textures, and optimized audio elements that can help create a comfortable and responsive virtual world.',
+    'The Meta Quest standalone virtual reality headset is the project’s target platform. In order to maintain seamless performance and offer an immersive user experience, standalone VR systems need assets that have been meticulously tuned. Therefore, this project will concentrate on developing effective, optimised models, suitably sized textures, and optimized audio elements that can help create a comfortable and responsive virtual world.',
   constraints: ['Limited processing power and graphics speed', 'Limited memory and battery life', 'No external sensors or wires — fully self-contained', 'Steady frame rate needed for comfort'],
   objectivesText:
-    'This project’s main goal is to create an immersive low-poly woodland setting that uses audio and visual elements to effectively portray environmental stories.',
+    'This project’s main goal is to create an immersive stylised woodland setting that uses audio and visual elements to effectively portray environmental stories.',
   objectives: [
-    { n: '4', label: 'Original low-poly 3D models', text: 'Unique models appropriate for real-time virtual reality applications.' },
+    { n: '4', label: 'Original 3D models', text: 'Unique models appropriate for real-time virtual reality applications.' },
     { n: '10', label: 'Edited environmental audio assets', text: 'Audio that enhances the experience’s sense of immersion.' },
     { n: 'VR', label: 'Optimisation', text: 'Techniques that keep assets compatible with standalone VR while preserving visual quality and consistency.' },
     { n: 'PM', label: 'Project management', text: 'Documented asset planning, workflow organisation, naming standards and development progress.' },
   ],
   outcome:
-    'When the folio is finished, it will showcase a unified set of optimized low-poly visual and audio elements that work together to produce a captivating virtual reality exploration experience. Echoes of the Forest seeks to show how very inexpensive assets can create a convincing and calming virtual world through the use of environmental storytelling, meticulously crafted 3D models, immersive environmental sound, and deliberate lighting.',
+    'When the folio is finished, it will showcase a unified set of optimized visual and audio elements that work together to produce a captivating virtual reality exploration experience. Echoes of the Forest seeks to show how very inexpensive assets can create a convincing and calming virtual world through the use of environmental storytelling, meticulously crafted 3D models, immersive environmental sound, and deliberate lighting.',
   diagram: {
     inputs: [
-      { label: 'Visual assets', detail: 'Original low-poly models, textures, colour', pages: ['process', 'assets', 'models'] },
+      { label: 'Visual assets', detail: 'Original models, textures, colour', pages: ['process', 'assets', 'models'] },
       { label: 'Audio', detail: 'Environmental sound, edited and layered', pages: ['audio', 'soundscape'] },
       { label: 'Atmosphere', detail: 'Lighting stages, afternoon → night', pages: ['research', 'moodboard', 'final'] },
     ],
@@ -228,12 +228,12 @@ export const research = {
     { title: 'Presence', text: 'The potential of virtual reality (VR) to give users a sense of presence—the perception that they are physically there in the virtual world—is one of its main advantages. Users are encouraged to pay greater attention to environmental elements and become more involved with their surroundings.', cites: ['bowman-2007', 'jerald-2016'] },
     { title: 'Standalone constraints', text: 'Assets must be carefully optimized because processing power, graphics speed, memory, and battery life are more constrained than on desktop PCs. Instead of seeing these restrictions as drawbacks, they push developers to use effective production methods.', cites: ['meta-docs'] },
     { title: 'Designing for comfort', text: 'Maintaining immersion while lowering the chance of motion sickness is made possible by solid performance, comfortable movement, and steady visual feedback — especially for people who might not be familiar with virtual reality.', cites: ['jerald-2016'] },
-    { title: 'Relevance to the project', text: 'The low-poly graphic style, straightforward geometry, effective textures, and thoughtfully layered environmental audio are meant to produce a visually coherent experience that is still appropriate for real-time rendering on standalone hardware.', cites: [] as string[] },
+    { title: 'Relevance to the project', text: 'The stylised graphic style, straightforward geometry, effective textures, and thoughtfully layered environmental audio are meant to produce a visually coherent experience that is still appropriate for real-time rendering on standalone hardware.', cites: [] as string[] },
   ],
-  lowPoly: [
-    { q: 'What is low-poly art?', a: 'Low-poly art is a type of 3D modeling where environments and objects are created using comparatively few polygons. Low-poly models employ straightforward geometric shapes, crisp outlines, and little detail to create a stylized visual impression rather than striving for extremely accurate detail.' },
+  artStyle: [
+    { q: 'What is a stylised art style?', a: 'A stylised art style simplifies environments and objects instead of reproducing them realistically. Stylised models employ straightforward geometric shapes, crisp outlines, and little detail to create a stylized visual impression rather than striving for extremely accurate detail.' },
     { q: 'Why games use it', a: 'It provides a balance between visual quality and performance. Models with fewer polygons require less computing power, the streamlined design cuts production time, and it gives developers a consistent artistic direction.' },
-    { q: 'Why it suits standalone VR', a: 'Standalone headsets like the Meta Quest have less computing power than gaming PCs. Low-poly models enable visually appealing, immersive scenes while lessening the rendering workload — keeping a steady frame rate and a comfortable experience.' },
+    { q: 'Why it suits standalone VR', a: 'Standalone headsets like the Meta Quest have less computing power than gaming PCs. Stylised, optimised models enable visually appealing, immersive scenes while lessening the rendering workload — keeping a steady frame rate and a comfortable experience.' },
     { q: 'Why it was chosen', a: 'The natural colour scheme and reduced geometry create a serene, stylized woodland without extraneous detail. It is also a feasible technique for a novice Blender learner to produce unique objects while honing their modelling abilities.' },
   ],
   palette: [
@@ -254,13 +254,13 @@ export const research = {
     { id: 'spaces', title: 'Open vs Enclosed', visual: 'Enclosed forest paths alternating with open clearings, ending at the campsite.', why: 'Dense forest fosters curiosity; open space invites the player to take it in.', theme: 'The shifting spaces create a natural rhythm and a sense of advancement.' },
   ],
   influence:
-    'Echoes of the Forest now has a distinct creative direction thanks to the research. The project will employ a stylized low poly aesthetic, natural colors, and environmental storytelling to provide a serene exploration experience rather than a highly detailed or action-focused setting. To ensure uniformity throughout the setting, all of the intended models—including the tent, bonfire, bag, and lantern—will have the same visual aesthetic.',
+    'Echoes of the Forest now has a distinct creative direction thanks to the research. The project will employ a stylized aesthetic, natural colors, and environmental storytelling to provide a serene exploration experience rather than a highly detailed or action-focused setting. To ensure uniformity throughout the setting, all of the intended models—including the tent, bonfire, bag, and lantern—will have the same visual aesthetic.',
 }
 
 /* ── 04 Moodboard ─────────────────────────────────────────────────────── */
 
 export const moodboard = {
-  image: m('moodboard/moodboard', 'Visual moodboard', 'The complete Echoes of the Forest visual moodboard: pine forests, low-poly assets, warm campsite light and cool night tones', '2000/1414'),
+  image: m('moodboard/moodboard', 'Visual moodboard', 'The complete Echoes of the Forest visual moodboard: pine forests, stylised assets, warm campsite light and cool night tones', '2000/1414'),
   fullResolution: '/downloads/yaksh-moodboard-full-resolution.png',
   fullResolutionInfo: 'PNG · 4961 × 3508 · 16.9 MB',
   annotation:
@@ -269,7 +269,7 @@ export const moodboard = {
     { title: 'Bob Ross', role: 'Atmosphere · colour', ref: 'bob-ross', why: 'Bob Ross’s landscape paintings capture the beauty of forests through soft lighting, balanced colour palettes, and peaceful natural scenery. These qualities closely match the relaxing environment I want to create in Echoes of the Forest.' },
     { title: 'God of War (2018)', role: 'Composition · lighting · guiding players', ref: 'god-of-war', why: 'The forest environments in God of War demonstrate how lighting, vegetation, and natural landmarks can guide players through an environment without excessive interface elements.' },
     { title: 'Princess Mononoke (1997)', role: 'Living, immersive forests', ref: 'mononoke', why: 'Princess Mononoke portrays forests as living, peaceful, and mysterious environments. Its use of rich greenery, natural lighting, and harmonious landscapes inspires the atmosphere I want to create.' },
-    { title: 'Synty Studios', role: 'Low-poly visual language', ref: 'synty', why: '' },
+    { title: 'Synty Studios', role: 'Stylised visual language', ref: 'synty', why: '' },
     { title: 'Fab', role: '3D asset reference research', ref: 'fab', why: '' },
     { title: 'Unsplash', role: 'Real-world forest & camping photography', ref: 'unsplash-forest', why: '' },
   ],
@@ -290,7 +290,7 @@ export const learning = {
   resources: [
     { title: 'Blender Manual', by: 'Blender Foundation', use: 'Tools, modelling and UV workflow reference', url: 'https://docs.blender.org/manual/en/latest/', ref: 'blender-manual' },
     { title: 'Blender Guru', by: 'Tutorials', use: 'Beginner modelling and texturing tutorials', url: 'https://www.blenderguru.com/', ref: 'blender-guru' },
-    { title: 'Grant Abbitt', by: 'Tutorials', use: 'Low-poly modelling tutorials', url: 'https://www.youtube.com/@grabbitt', ref: 'grant-abbitt' },
+    { title: 'Grant Abbitt', by: 'Tutorials', use: 'Modelling tutorials', url: 'https://www.youtube.com/@grabbitt', ref: 'grant-abbitt' },
     { title: 'Meta Quest Developer Documentation', by: 'Meta', use: 'Standalone VR performance and workflow', url: 'https://developers.meta.com/horizon/documentation/', ref: 'meta-docs' },
   ],
   evidence: [
@@ -501,7 +501,7 @@ export const finalEnvironment = {
   ],
   /** Walkthrough films with their environmental audio. */
   films: [
-    { title: 'Day', note: 'Afternoon light, birds and running water.', media: m('final/forest-day', 'Day walkthrough', 'Walkthrough of the low-poly forest in warm daytime light', '16/9') },
+    { title: 'Day', note: 'Afternoon light, birds and running water.', media: m('final/forest-day', 'Day walkthrough', 'Walkthrough of the forest in warm daytime light', '16/9') },
     { title: 'Night', note: 'Moonlight, crickets and the campfire.', media: m('final/forest-night', 'Night walkthrough', 'Walkthrough of the forest at night, lit by moonlight and the campfire', '16/9') },
   ],
 }
@@ -521,10 +521,10 @@ export interface FinalModel {
 }
 
 export const finalModels: FinalModel[] = [
-  { name: 'Tree', status: 'complete', src: 'models/pine-tree', alt: 'Interactive 3D model of the low-poly trees', polyBudget: '500–700', tris: 372, textures: 'Bark014 · LeafSet029 · Grass002 (1K)', size: 1269728, sketchfabUrl: 'https://skfb.ly/pO6zF' },
-  { name: 'Camping Tent', status: 'complete', src: 'models/camping-tent', alt: 'Interactive 3D model of the low-poly camping tent', polyBudget: '900–1200', tris: 145, textures: 'Fabric046 (1K)', size: 155404, sketchfabUrl: 'https://skfb.ly/pO6AQ' },
-  { name: 'Boulder', status: 'complete', src: 'models/boulder', alt: 'Interactive 3D model of the low-poly boulder', polyBudget: '150–300', sketchfabUrl: 'https://skfb.ly/pO6At' },
-  { name: 'Campfire', status: 'complete', src: 'models/campfire', alt: 'Interactive 3D model of the low-poly campfire', polyBudget: '300–500', sketchfabUrl: 'https://skfb.ly/pO6BM' },
+  { name: 'Tree', status: 'complete', src: 'models/pine-tree', alt: 'Interactive 3D model of the trees', polyBudget: '500–700', tris: 372, textures: 'Bark014 · LeafSet029 · Grass002 (1K)', size: 1269728, sketchfabUrl: 'https://skfb.ly/pO6zF' },
+  { name: 'Camping Tent', status: 'complete', src: 'models/camping-tent', alt: 'Interactive 3D model of the camping tent', polyBudget: '900–1200', tris: 145, textures: 'Fabric046 (1K)', size: 155404, sketchfabUrl: 'https://skfb.ly/pO6AQ' },
+  { name: 'Boulder', status: 'complete', src: 'models/boulder', alt: 'Interactive 3D model of the boulder', polyBudget: '150–300', sketchfabUrl: 'https://skfb.ly/pO6At' },
+  { name: 'Campfire', status: 'complete', src: 'models/campfire', alt: 'Interactive 3D model of the campfire', polyBudget: '300–500', sketchfabUrl: 'https://skfb.ly/pO6BM' },
 ]
 
 /* ── 12 Final Soundscape ──────────────────────────────────────────────── */
@@ -559,7 +559,7 @@ export const reflection = {
       id: 'sourcing-and-creative-decisions',
       title: 'Sourcing & Creative Decisions',
       prompt: 'What primary reference source or asset tutorials had the biggest impact on your work during this stage, and how did it change your approach to building your assets?',
-      text: 'Research and visual references had a significant influence on the final direction of my project. My research into low-poly environmental design, colour, lighting and natural environments helped me establish the visual style of the forest. References such as God of War, Princess Mononoke and natural landscape imagery influenced my approach to creating an environment that felt atmospheric while remaining visually manageable. I also used material and texturing research to improve the appearance of the bark, foliage and tent. Instead of trying to reproduce references exactly, I used them to guide decisions about shape, colour, materials and atmosphere. This helped me develop a more consistent visual identity across the different assets.',
+      text: 'Research and visual references had a significant influence on the final direction of my project. My research into stylised environmental design, colour, lighting and natural environments helped me establish the visual style of the forest. References such as God of War, Princess Mononoke and natural landscape imagery influenced my approach to creating an environment that felt atmospheric while remaining visually manageable. I also used material and texturing research to improve the appearance of the bark, foliage and tent. Instead of trying to reproduce references exactly, I used them to guide decisions about shape, colour, materials and atmosphere. This helped me develop a more consistent visual identity across the different assets.',
     },
     {
       id: 'closing-the-feedback-loop',
@@ -570,8 +570,8 @@ export const reflection = {
   ],
   sections: [
     { id: 'shift-in-perspective', title: 'Shift in Perspective', text: 'My comprehension of the steps needed in producing an immersive virtual reality experience has evolved dramatically over the last four weeks. I thought that making aesthetically pleasing 3D models was the primary goal of developing a VR environment at the start of the course. But now that I’ve planned my folio and studied VR programming, I realize that good immersive experiences need much more than just eye-catching graphics. Optimization, environmental narrative, user comfort, lighting, audio, and technical performance are all equally significant factors. This change in viewpoint has inspired me to think like both a designer and a developer while making decisions for Echoes of the Forest and has helped me recognize the value of planning before production.' },
-    { id: 'scoping-and-prioritisation', title: 'Scoping & Prioritisation', text: 'Before selecting what was feasible to construct, I took into account my experience level and the time I had available. Since I’m new to Blender, I decided on a low-poly art style because it lets me employ basic geometry to produce aesthetically pleasing items with good standalone VR performance. A much bigger woodland with numerous intricate objects and interactive elements was part of my first concept. But I realized it would be challenging to finish this within the semester. I focused on producing fewer, better-quality materials and narrowed the scope to a forest walk that leads to a secret campground. This strategy will enable me to finish the project while preserving a constant level of technical and artistic excellence.' },
-    { id: 'sourcing-technical-guides', title: 'Sourcing Technical Guides', text: 'To prepare for the production stage, I researched several industry examples and technical resources that will guide my development process. Bob Ross’s landscape paintings inspired my colour palette and peaceful forest atmosphere, while God of War influenced my environmental composition and lighting. Princess Mononoke provided ideas for creating a natural and immersive forest environment. For technical learning, I have bookmarked the Blender Manual, tutorials from Blender Guru and Grant Abbitt, and the Meta Quest Developer Documentation. These resources will help me learn low-poly modelling, texturing, optimisation, and workflow techniques suitable for standalone VR. Together, they provide both artistic inspiration and practical guidance for developing Echoes of the Forest.' },
+    { id: 'scoping-and-prioritisation', title: 'Scoping & Prioritisation', text: 'Before selecting what was feasible to construct, I took into account my experience level and the time I had available. Since I’m new to Blender, I decided on a stylised art style because it lets me employ basic geometry to produce aesthetically pleasing items with good standalone VR performance. A much bigger woodland with numerous intricate objects and interactive elements was part of my first concept. But I realized it would be challenging to finish this within the semester. I focused on producing fewer, better-quality materials and narrowed the scope to a forest walk that leads to a secret campground. This strategy will enable me to finish the project while preserving a constant level of technical and artistic excellence.' },
+    { id: 'sourcing-technical-guides', title: 'Sourcing Technical Guides', text: 'To prepare for the production stage, I researched several industry examples and technical resources that will guide my development process. Bob Ross’s landscape paintings inspired my colour palette and peaceful forest atmosphere, while God of War influenced my environmental composition and lighting. Princess Mononoke provided ideas for creating a natural and immersive forest environment. For technical learning, I have bookmarked the Blender Manual, tutorials from Blender Guru and Grant Abbitt, and the Meta Quest Developer Documentation. These resources will help me learn 3D modelling, texturing, optimisation, and workflow techniques suitable for standalone VR. Together, they provide both artistic inspiration and practical guidance for developing Echoes of the Forest.' },
     { id: 'identifying-skill-gaps', title: 'Identifying Skill Gaps', text: 'Making 3D models in Blender, especially box modeling, UV unwrapping, and properly applying textures, is currently my least confident area. I anticipate that these tasks will require the greatest practice because I have never used Blender before. Before beginning my final materials, I want to finish a few beginner tutorials to hone my abilities. Before moving on to more intricate models like the camping tent and light, I will start by modeling basic things like pebbles, logs, and trees. Additionally, I need to get better at audio editing, especially when it comes to adding background noise to create a realistic woodland setting. Regular practice of these methods will boost my confidence during the project’s production phase.' },
   ],
   closing:
