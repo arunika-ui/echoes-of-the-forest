@@ -1,6 +1,7 @@
 import { Block } from '../components/Block'
 import { MediaFigure } from '../components/Media'
 import { PageIntro } from '../components/PageIntro'
+import { useLightbox } from '../components/useLightbox'
 import { PageNext } from '../components/PageNext'
 import { Reveal } from '../components/Reveal'
 import { blenderProcess as bp, pageBySlug } from '../data/projectData'
@@ -9,9 +10,21 @@ import { usePageTitle } from './usePageTitle'
 export function ProcessPage() {
   const page = pageBySlug('process')
   usePageTitle(page.nav)
+  const lb = useLightbox(bp.screenshots)
   return (
     <>
       <PageIntro page={page} />
+
+      <Block label="Screenshots" title="Building the forest in Blender" wide>
+        <Reveal as="ul" className="grid-3 shots" stagger>
+          {bp.screenshots.map((shot, i) => (
+            <li key={shot.key}>
+              <MediaFigure media={shot} fit="contain" onOpen={() => lb.open(i)} sizes="(min-width: 900px) 30vw, 100vw" />
+            </li>
+          ))}
+        </Reveal>
+        {lb.node}
+      </Block>
 
       <Block label="Textures" title="Texture sets" lede={<p>{bp.textureMaps}</p>} wide>
         <div className="texsets">

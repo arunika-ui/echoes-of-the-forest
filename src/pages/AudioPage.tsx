@@ -22,6 +22,10 @@ export function AudioPage() {
         <Excerpt text={sonic.why} />
       </Block>
 
+      <Block label="Sound design" title="Creating sound from scratch" lede={<p>A screen recording of me building an original sound from scratch.</p>} wide>
+        <MediaFigure media={sonic.fromScratch} />
+      </Block>
+
       <Block
         label="Sonic moodboard"
         title="Sourced reference sounds"

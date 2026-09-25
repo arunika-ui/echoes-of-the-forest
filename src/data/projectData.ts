@@ -74,7 +74,7 @@ export const pages: PageDef[] = [
   { n: '03', slug: 'research', path: '/research', nav: 'Research', title: 'Research', intro: 'XR platform research, the stylised art style, colour, lighting and environmental design.', group: 'research', tone: 'golden' },
   { n: '04', slug: 'moodboard', path: '/moodboard', nav: 'Moodboard', title: 'Visual Moodboard', intro: 'One composed moodboard that fixes the visual identity of the forest and campsite.', group: 'research', tone: 'golden' },
   { n: '05', slug: 'learning', path: '/learning', nav: 'Technical Learning', title: 'Technical Learning', intro: 'Identified skill gaps, a learning plan, and the resources used to close them.', group: 'research', tone: 'golden' },
-  { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'The texture sets used in Blender.', group: 'development', tone: 'forest' },
+  { n: '06', slug: 'process', path: '/process', nav: 'Blender Process', title: 'Blender Process', intro: 'Screenshots from the Blender build, and the texture sets used.', group: 'development', tone: 'forest' },
   { n: '07', slug: 'assets', path: '/assets', nav: 'Asset Development', title: 'Asset Development', intro: 'The visual and audio asset trackers — planned assets, budgets and honest status.', group: 'development', tone: 'forest' },
   { n: '08', slug: 'audio', path: '/audio', nav: 'Sonic Development', title: 'Sonic Development', intro: 'Sound changes alongside light to communicate the passage of time.', group: 'development', tone: 'forest' },
   { n: '09', slug: 'timeline', path: '/timeline', nav: 'Timeline', title: 'Timeline', intro: 'Every milestone, from research to final submission.', group: 'development', tone: 'dusk' },
@@ -302,6 +302,35 @@ export const learning = {
 /* ── 06 Blender Process ───────────────────────────────────────────────── */
 
 export const blenderProcess = {
+  /** Blender screenshots, in build order. */
+  screenshots: [
+    m('process/blender-01', 'Tree trunk blocked out on the terrain', 'Blender screenshot: Tree trunk blocked out on the terrain', '16/10', 'Tree trunk blocked out on the terrain'),
+    m('process/blender-02', 'Branches added to the trunk', 'Blender screenshot: Branches added to the trunk', '16/10', 'Branches added to the trunk'),
+    m('process/blender-03', 'Big, mid and small tree variations grouped into collections', 'Blender screenshot: Big, mid and small tree variations grouped into collections', '16/10', 'Big, mid and small tree variations grouped into collections'),
+    m('process/blender-04', 'Forest populated and lit with a sun lamp', 'Blender screenshot: Forest populated and lit with a sun lamp', '16/10', 'Forest populated and lit with a sun lamp'),
+    m('process/blender-05', 'Boulders modelled as high- and low-detail versions for normal baking', 'Blender screenshot: Boulders modelled as high- and low-detail versions for normal baking', '16/10', 'Boulders modelled as high- and low-detail versions for normal baking'),
+    m('process/blender-06', 'Stone ring for the campfire', 'Blender screenshot: Stone ring for the campfire', '16/10', 'Stone ring for the campfire'),
+    m('process/blender-07', 'Firewood logs crossed for the campfire', 'Blender screenshot: Firewood logs crossed for the campfire', '16/10', 'Firewood logs crossed for the campfire'),
+    m('process/blender-08', 'Terrain plane shaped with gentle hills', 'Blender screenshot: Terrain plane shaped with gentle hills', '16/10', 'Terrain plane shaped with gentle hills'),
+    m('process/blender-09', 'Terrain mesh in edit mode', 'Blender screenshot: Terrain mesh in edit mode', '16/10', 'Terrain mesh in edit mode'),
+    m('process/blender-10', 'Ground textures applied, with a dirt path through the middle', 'Blender screenshot: Ground textures applied, with a dirt path through the middle', '16/10', 'Ground textures applied, with a dirt path through the middle'),
+    m('process/blender-11', 'Textured tree beside an untextured trunk', 'Blender screenshot: Textured tree beside an untextured trunk', '16/10', 'Textured tree beside an untextured trunk'),
+    m('process/blender-12', 'Bark texture applied to the trunk', 'Blender screenshot: Bark texture applied to the trunk', '16/10', 'Bark texture applied to the trunk'),
+    m('process/blender-13', 'Trunk geometry refined in edit mode', 'Blender screenshot: Trunk geometry refined in edit mode', '16/10', 'Trunk geometry refined in edit mode'),
+    m('process/blender-14', 'Foliage cluster shaped in edit mode', 'Blender screenshot: Foliage cluster shaped in edit mode', '16/10', 'Foliage cluster shaped in edit mode'),
+    m('process/blender-15', 'Foliage clusters in solid view', 'Blender screenshot: Foliage clusters in solid view', '16/10', 'Foliage clusters in solid view'),
+    m('process/blender-16', 'Full forest scene assembled', 'Blender screenshot: Full forest scene assembled', '16/10', 'Full forest scene assembled'),
+    m('process/blender-17', 'Grass scattered along the path at eye level', 'Blender screenshot: Grass scattered along the path at eye level', '16/10', 'Grass scattered along the path at eye level'),
+    m('process/blender-18', 'Looking down the trail towards the campsite', 'Blender screenshot: Looking down the trail towards the campsite', '16/10', 'Looking down the trail towards the campsite'),
+    m('process/blender-19', 'Tent and campfire placed at the campsite', 'Blender screenshot: Tent and campfire placed at the campsite', '16/10', 'Tent and campfire placed at the campsite'),
+    m('process/blender-20', 'Campfire stones in edit mode', 'Blender screenshot: Campfire stones in edit mode', '16/10', 'Campfire stones in edit mode'),
+    m('process/blender-21', 'Campfire log mesh in wireframe', 'Blender screenshot: Campfire log mesh in wireframe', '16/10', 'Campfire log mesh in wireframe'),
+    m('process/blender-22', 'Tent mesh in edit mode', 'Blender screenshot: Tent mesh in edit mode', '16/10', 'Tent mesh in edit mode'),
+    m('process/blender-23', 'Boulders shaped in edit mode', 'Blender screenshot: Boulders shaped in edit mode', '16/10', 'Boulders shaped in edit mode'),
+    m('process/blender-24', 'Camera placed on the trail', 'Blender screenshot: Camera placed on the trail', '16/10', 'Camera placed on the trail'),
+    m('process/blender-25', 'Camera animation set up for the walkthrough', 'Blender screenshot: Camera animation set up for the walkthrough', '16/10', 'Camera animation set up for the walkthrough'),
+    m('process/blender-26', 'Grass patches organised into collections', 'Blender screenshot: Grass patches organised into collections', '16/10', 'Grass patches organised into collections'),
+  ],
   /** Every file in the texture folder, grouped by set. */
   textureSets: [
     {
@@ -363,6 +392,9 @@ export const blenderProcess = {
 /* ── 07 Asset Development (visual and audio asset.docx) ───────────────── */
 
 export type Status = 'complete' | 'in-progress' | 'not-started'
+
+/** Project folder structure. */
+export const assetManagement = m('assets/asset-management', 'Asset management', 'Project folder structure: 3d models, Audio, Documents, Moodboard, Renders, Research & References, Submission, Textures and Website, with their sub-folders', '2000/1414', 'Every file sorted into one folder per stage, with final and previous versions kept apart.')
 
 export const visualAssets = [
   { name: 'Pine Tree', type: '3D', category: 'Environment', description: 'Main forest tree', texture: 'pineTree.png', resolution: '1024×1024', lighting: 'Sun/Moon', relatedTo: 'Forest', polys: '500–700', status: 'complete' as Status },
@@ -428,6 +460,8 @@ export const sonicMoodboard: SourceClip[] = [
 const shot = (file: string, caption: string) => m(`audio/editing/${file}`, caption, `Audacity: ${caption}`, '16/9', caption)
 
 export const sonic = {
+  /** Screen recording of a sound being made from scratch. */
+  fromScratch: m('audio/sound-from-scratch', 'Creating sound from scratch', 'Screen recording of an original sound being created from scratch', '16/9'),
   why: 'The noises of the surrounding environment change from birds and running water to crickets, a little wind, and the crackling of the bonfire. Sound changes alongside lighting to communicate the passage of time — and it is one of the two halves of the folio inquiry.',
   /** Effects visible in the Audacity screenshots below. */
   editedWith: 'EQ, reverb, compression, speed and pitch changes, and trimming',
@@ -493,12 +527,6 @@ export const timeline: Milestone[] = [
 
 export const finalEnvironment = {
   scene: { src: 'models/scene', title: 'Forest scene', alt: 'Interactive 3D model of the Echoes of the Forest scene', tris: 517, size: 1424712 },
-  renders: [
-    { title: 'Afternoon', media: m('final/render-afternoon', 'Afternoon render', 'Render of the forest in warm afternoon light', '16/9') },
-    { title: 'Golden hour', media: m('final/render-golden-hour', 'Golden-hour render', 'Render of the trail at golden hour', '16/9') },
-    { title: 'Campfire', media: m('final/render-campfire', 'Campfire render', 'Render of the campsite lit by the campfire', '16/9') },
-    { title: 'Moonlight', media: m('final/render-moonlight', 'Moonlight render', 'Render of the forest under cool moonlight', '16/9') },
-  ],
   /** Walkthrough films with their environmental audio. */
   films: [
     { title: 'Day', note: 'Afternoon light, birds and running water.', media: m('final/forest-day', 'Day walkthrough', 'Walkthrough of the forest in warm daytime light', '16/9') },

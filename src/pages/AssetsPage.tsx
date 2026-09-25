@@ -1,15 +1,18 @@
 import { AssetTable } from '../components/AssetTable'
 import { AudioPlayer } from '../components/AudioPlayer'
 import { Block } from '../components/Block'
+import { MediaFigure } from '../components/Media'
+import { useLightbox } from '../components/useLightbox'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
 import { Reveal } from '../components/Reveal'
-import { audioAssets, pageBySlug, visualAssets } from '../data/projectData'
+import { assetManagement, audioAssets, pageBySlug, visualAssets } from '../data/projectData'
 import { usePageTitle } from './usePageTitle'
 
 export function AssetsPage() {
   const page = pageBySlug('assets')
   usePageTitle(page.nav)
+  const lb = useLightbox([assetManagement])
   const done = visualAssets.filter((v) => v.status === 'complete').length
   return (
     <>
@@ -28,7 +31,12 @@ export function AssetsPage() {
         </dl>
       </PageIntro>
 
-      <Block label="Visual asset tracker" title="3D assets" lede={<p>From the project’s asset tracker. Only the pine tree and camping tent are complete; the final four models will be drawn from this list.</p>} wide>
+      <Block label="Asset management" title="Project folder structure" lede={<p>How the project files are organised, from models and textures to renders and audio.</p>} wide>
+        <MediaFigure media={assetManagement} fit="contain" onOpen={() => lb.open(0)} />
+        {lb.node}
+      </Block>
+
+      <Block label="Visual asset tracker" title="3D assets" lede={<p>From the project’s asset tracker. The tree, tent, boulder and campfire became the four final models.</p>} wide>
         <AssetTable
           caption="Visual asset tracker"
           rows={visualAssets}

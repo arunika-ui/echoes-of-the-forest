@@ -28,13 +28,6 @@ export function FinalPage() {
         </div>
       </Block>
 
-      <Block label="Renders" title="Four lighting stages" wide>
-        <div className="grid-2">
-          {fe.renders.map((r) => (
-            <EvidenceCard key={r.title} kind="image" title={r.title} media={r.media} />
-          ))}
-        </div>
-      </Block>
 
       <PageNext slug="final" />
     </>
