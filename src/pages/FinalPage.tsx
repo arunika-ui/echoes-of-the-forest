@@ -21,7 +21,7 @@ export function FinalPage() {
       </section>
 
       <Block label="Walkthrough" title="Day and night" lede={<p>Two walkthroughs of the finished scene, with sound. Press play and turn your volume up.</p>} wide>
-        <div className="grid-2">
+        <div className="grid-2 portrait-grid">
           {fe.films.map((f) => (
             <EvidenceCard key={f.title} kind="video" title={f.title} media={f.media} caption={<p>{f.note}</p>} />
           ))}

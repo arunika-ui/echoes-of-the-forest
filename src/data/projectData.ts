@@ -293,10 +293,6 @@ export const learning = {
     { title: 'Grant Abbitt', by: 'Tutorials', use: 'Modelling tutorials', url: 'https://www.youtube.com/@grabbitt', ref: 'grant-abbitt' },
     { title: 'Meta Quest Developer Documentation', by: 'Meta', use: 'Standalone VR performance and workflow', url: 'https://developers.meta.com/horizon/documentation/', ref: 'meta-docs' },
   ],
-  evidence: [
-    { title: 'Beginner tutorial exercise', media: m('process/tutorial-01', 'Tutorial exercise', 'Blender tutorial exercise') },
-    { title: 'Simple object practice', media: m('process/practice-simple', 'Practice model', 'Early practice model (rock or log) in Blender') },
-  ],
 }
 
 /* ── 06 Blender Process ───────────────────────────────────────────────── */
@@ -461,7 +457,7 @@ const shot = (file: string, caption: string) => m(`audio/editing/${file}`, capti
 
 export const sonic = {
   /** Screen recording of a sound being made from scratch. */
-  fromScratch: m('audio/sound-from-scratch', 'Creating sound from scratch', 'Screen recording of an original sound being created from scratch', '16/9'),
+  fromScratch: m('audio/sound-from-scratch', 'Creating sound from scratch', 'Recording of an original sound being created from scratch', '9/16'),
   why: 'The noises of the surrounding environment change from birds and running water to crickets, a little wind, and the crackling of the bonfire. Sound changes alongside lighting to communicate the passage of time — and it is one of the two halves of the folio inquiry.',
   /** Effects visible in the Audacity screenshots below. */
   editedWith: 'EQ, reverb, compression, speed and pitch changes, and trimming',
@@ -529,8 +525,8 @@ export const finalEnvironment = {
   scene: { src: 'models/scene', title: 'Forest scene', alt: 'Interactive 3D model of the Echoes of the Forest scene', tris: 517, size: 1424712 },
   /** Walkthrough films with their environmental audio. */
   films: [
-    { title: 'Day', note: 'Afternoon light, birds and running water.', media: m('final/forest-day', 'Day walkthrough', 'Walkthrough of the forest in warm daytime light', '16/9') },
-    { title: 'Night', note: 'Moonlight, crickets and the campfire.', media: m('final/forest-night', 'Night walkthrough', 'Walkthrough of the forest at night, lit by moonlight and the campfire', '16/9') },
+    { title: 'Day', note: 'Daylight, with running water, rustling leaves and wind.', media: m('final/forest-day', 'Day walkthrough', 'Walkthrough of the forest in warm daytime light', '9/16') },
+    { title: 'Night', note: 'Moonlight, with crickets, the campfire and a light wind.', media: m('final/forest-night', 'Night walkthrough', 'Walkthrough of the forest at night, lit by moonlight and the campfire', '9/16') },
   ],
 }
 

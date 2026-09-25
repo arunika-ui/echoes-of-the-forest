@@ -1,7 +1,6 @@
 import { Excerpt } from '../components/Excerpt'
 import { Block } from '../components/Block'
 import { Cite } from '../components/Cite'
-import { EvidenceCard } from '../components/EvidenceCard'
 import { PageIntro } from '../components/PageIntro'
 import { PageNext } from '../components/PageNext'
 import { Reveal } from '../components/Reveal'
@@ -50,13 +49,6 @@ export function LearningPage() {
         </Reveal>
       </Block>
 
-      <Block label="Evidence" title="Tutorial exercises" wide>
-        <div className="grid-2">
-          {learning.evidence.map((e) => (
-            <EvidenceCard key={e.title} kind="image" title={e.title} media={e.media} />
-          ))}
-        </div>
-      </Block>
 
       <PageNext slug="learning" />
     </>

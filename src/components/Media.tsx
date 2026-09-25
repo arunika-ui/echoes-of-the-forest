@@ -26,6 +26,7 @@ export function MediaFill({
       <video
         className={`media-el is-loaded fit-${fit}`}
         src={url}
+        poster={resolveMedia(`${media.key}-poster`)}
         muted={ambient}
         controls={!ambient}
         loop={ambient}

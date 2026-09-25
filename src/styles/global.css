@@ -2456,3 +2456,11 @@ body {
   margin: 0.35rem 0 0.9rem;
   font-style: italic;
 }
+
+/* Portrait (9:16) videos */
+.portrait-grid {
+  max-width: 760px;
+}
+.portrait-video {
+  max-width: 360px;
+}
